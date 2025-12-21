@@ -104,7 +104,22 @@ Template ini mendukung warna cover yang berbeda sesuai program studi Poliwangi. 
 
 ---
 
-## 🖥️ Panduan Instalasi & Penggunaan Lokal (Windows)
+## 🖥️ Panduan Penggunaan
+
+### Opsi 1: Overleaf (Direkomendasikan - Mudah & Online)
+
+1. **Upload ke Overleaf**:
+   - Buka [Overleaf](https://www.overleaf.com/)
+   - Klik **New Project** → **Upload Project**
+   - Upload ZIP dari repository ini
+   - Atau import langsung dari GitHub
+
+2. **Compile**:
+   - Overleaf akan otomatis compile
+   - File utama: `Project/laporan.tex`
+   - Compiler: pdfLaTeX
+
+### Opsi 2: Instalasi Lokal (Windows)
 
 1. **Install MikTeX**: [https://miktex.org/download](https://miktex.org/download)
    > Pilih *For All Users*, centang opsi *Always install missing packages*
@@ -113,12 +128,15 @@ Template ini mendukung warna cover yang berbeda sesuai program studi Poliwangi. 
 4. **Clone/unduh** repositori dan buka `laporan.tex` melalui TeXstudio
 5. Klik **Build & View** untuk melihat hasil kompilasi (`laporan.pdf`)
 
----
+### Opsi 3: MacOS dengan MacTeX
 
-## 🍎 Panduan Alternatif (MacOS - VS Code)
-
-Lihat petunjuk lengkap instalasi dan konfigurasi pada dokumentasi berikut:
-➡️ [Instalasi LaTeX di MacOS dengan VSCode](https://sudorealm.com/blog/how-to-write-latex-documents-with-visual-studio-code-on-mac)
+1. **Install MacTeX**: 
+   ```bash
+   brew install --cask mactex
+   ```
+2. **Install Texifier** atau **TeXstudio**
+3. **Buka** `Project/laporan.tex`
+4. **Compile** dengan pdfLaTeX
 
 ---
 
@@ -181,30 +199,29 @@ Format ekspor: `.bib` (BibTeX), lalu tambahkan ke file `a7-pustaka.bib`.
 
 ---
 
-## 📄 Lisensi
+## 📬 Kontak & Kontribusi
 
-Proyek ini dilisensikan di bawah [MIT License](LICENSE).
-
----
-
-## 🤝 Kontribusi
+**Repository:** [github.com/codelabs-poliwangi/template-laporanTA-latex-poliwangi](https://github.com/codelabs-poliwangi/template-laporanTA-latex-poliwangi)
 
 Saran, kontribusi, dan perbaikan sangat terbuka.
 Silakan buat **Pull Request** atau buka **Issue** melalui GitHub.
 
 ---
 
-## 📬 Kontak
+## 📝 Informasi Template
 
-Jika Anda memiliki pertanyaan, hubungi:
-📧 Email pengembang template
-👤 GitHub contributor
+- **Institusi:** Politeknik Negeri Banyuwangi
+- **Program Studi:** Sarjana Terapan Teknologi Rekayasa Perangkat Lunak
+- **Jurusan:** Jurusan Bisnis dan Informatika
+- **Pedoman:** Pedoman Mutu Tugas Akhir Poliwangi 2023
+- **Logo:** Politeknik Negeri Banyuwangi
+- **Warna Cover Default:** Kuning (RGB: 255,215,0)
 
-**Catatan:** 
-- Template ini diadaptasi untuk Politeknik Negeri Banyuwangi berdasarkan Pedoman Mutu Tugas Akhir Poliwangi 2023
-- Dikonfigurasi untuk Program Studi Sarjana Terapan Teknologi Rekayasa Perangkat Lunak
-- Jurusan Bisnis dan Informatika
-- Logo: Politeknik Negeri Banyuwangi
+---
+
+## 📄 Lisensi
+
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).
 
 ---
 
@@ -335,16 +352,11 @@ Format ekspor: `.bib` (BibTeX), lalu tambahkan ke file `a7-pustaka.bib`.
 
 ---
 
-## 🎬 Video Tutorial
+## 🎬 Preview
 
-| No | Judul                                              | Link                                                   |
-| -- | -------------------------------------------------- | ------------------------------------------------------ |
-| 1  | Penggunaan Template TA UNY                         | [YouTube](https://www.youtube.com/watch?v=lnPTVrOGB90) |
-| 2  | Penulisan Isi Laporan                              | [YouTube](https://www.youtube.com/watch?v=4Qk_2pknhsM) |
-| 3  | Menambah Gambar dan Tabel                          | [YouTube](https://www.youtube.com/watch?v=oxY1mbZgv94) |
-| 4  | Referensi dan Sitasi                               | [YouTube](https://www.youtube.com/watch?v=goq-IS4WJW4) |
-| 5  | Menulis Kode Program                               | [YouTube](https://www.youtube.com/watch?v=JeSJ0mYfxA0) |
-| 6  | Workshop Lengkap Proposal dan Laporan dengan LaTeX | [YouTube](https://www.youtube.com/watch?v=anMLRydjDOE) |
+![Cover Preview](Project/gambar/logo-poliwangi.png)
+
+*Template ini sudah disesuaikan dengan format Politeknik Negeri Banyuwangi*
 
 ---
 
