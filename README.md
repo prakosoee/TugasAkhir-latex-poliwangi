@@ -1,52 +1,97 @@
-# 📘 Template LaTeX Laporan Tugas Akhir
+# 📘 Template LaTeX Tugas Akhir Poliwangi
 
 *Program Sarjana Terapan Teknologi Rekayasa Perangkat Lunak – Politeknik Negeri Banyuwangi*
 
-Template ini dirancang untuk mempermudah penulisan Proposal dan Laporan Tugas Akhir bagi mahasiswa D3 dan D4 Politeknik Negeri Banyuwangi. Template ini memastikan keseragaman format sesuai Pedoman Mutu Tugas Akhir Poliwangi 2023, efisiensi penulisan, serta kemudahan kolaborasi dan pengelolaan dokumen melalui Git atau Overleaf.
+Template LaTeX untuk penulisan **Proposal** dan **Laporan Tugas Akhir** bagi mahasiswa D3 dan D4 Politeknik Negeri Banyuwangi. Template ini memastikan keseragaman format sesuai Pedoman Mutu Tugas Akhir Poliwangi 2023.
 
 ---
 
-## 📁 Struktur Proyek
+## 📂 Struktur Repository
+
+Repository ini terdiri dari **2 folder utama**:
+
+### 1. 📁 `proposal/` - Template Proposal Tugas Akhir
+Untuk penulisan **Proposal TA** yang terdiri dari:
+- **BAB 1** - Pendahuluan
+- **BAB 2** - Tinjauan Pustaka
+- **BAB 3** - Metode Penelitian
+- Cover, Abstrak, Daftar Pustaka
+
+**File utama:** `proposal/proposal.tex`
+
+### 2. 📁 `laporan/` - Template Laporan Tugas Akhir
+Untuk penulisan **Laporan TA Lengkap** yang terdiri dari:
+- **BAB 1** - Pendahuluan
+- **BAB 2** - Tinjauan Pustaka
+- **BAB 3** - Metode Penelitian
+- **BAB 4** - Hasil dan Pembahasan
+- **BAB 5** - Kesimpulan dan Saran
+- Cover, Halaman Pengesahan, Abstrak, Kata Pengantar, dll.
+
+**File utama:** `laporan/laporan.tex`
+
+---
+
+## 📁 Struktur Detail
+
+### Folder `laporan/` (Laporan Tugas Akhir Lengkap)
 
 ```
-Template-LaTeX-Laporan-Tugas-Akhir
-├── CHANGELOG                         # Catatan perubahan
-├── LICENSE                           # Lisensi proyek        
-├── Project                           # Folder proyek    
-│   ├── a0-identitas.tex              # Isi identitas laporan (WAJIB DIISI)
-│   ├── a1-database.hyphenate.tex     # Database untuk hyphenation
-│   ├── a2-abstrak.tex                # Abstrak dalam Bahasa Indonesia  
-│   ├── a3-abstract.tex               # Abstrak dalam Bahasa Inggris
-│   ├── a4-persembahan.tex            # Persembahan
-│   ├── a5-katapengantar.tex          # Kata Pengantar
-│   ├── a6-daftarsingkatan.tex        # Daftar Singkatan
-│   ├── a7-pustaka.bib                # Daftar pustaka dalam format BibTeX
-│   ├── a8-lampiran.tex               # Lampiran
-│   ├── a9-motto.tex                  # Motto (opsional)
-│   ├── b1-bab1.tex                   # BAB 1 - Pendahuluan
-│   ├── b2-bab2.tex                   # BAB 2 - Tinjauan Pustaka
-│   ├── b3-bab3.tex                   # BAB 3 - Metode Penelitian
-│   ├── b4-bab4.tex                   # BAB 4 - Hasil dan Pembahasan
-│   ├── b5-bab5.tex                   # BAB 5 - Kesimpulan dan Saran
-│   ├── b6-bab6.tex                   # BAB 6 - Tutorial LaTeX (opsional)
-│   ├── gambar                        # Folder untuk menyimpan gambar
-│   ├── kode                          # Folder untuk menyimpan kode program
-│   ├── laporan.pdf                   # Hasil kompilasi laporan
-│   ├── laporan.tex                   # File utama untuk kompilasi laporan
-│   └── untouch                       # Folder untuk menyimpan file yang tidak perlu diubah
-│       ├── xx-daftar.tex
-│       ├── xx-daftarpustaka.tex
-│       ├── xx-pengesahan.tex
-│       ├── xx-pernyataan.tex
-│       ├── xx-pernyataan-poliwangi.tex
-│       ├── xx-persetujuan-proposal.tex
-│       ├── xx-persetujuan-ujian.tex
-│       ├── xx-preambles.tex
-│       ├── xx-sampul-laporan.tex
-│       ├── xx-sampul-proposal.tex
-│       ├── xx-sampuldalam-laporan.tex
-│       └── xx-sampuldalam-proposal.tex
-└── README.md                         # Dokumen ini
+laporan/
+├── laporan.tex                       # File utama untuk kompilasi laporan
+├── a0-identitas.tex                  # Isi identitas (WAJIB DIISI)
+├── a1-database.hyphenate.tex         # Database hyphenation
+├── a2-abstrak.tex                    # Abstrak Bahasa Indonesia  
+├── a3-abstract.tex                   # Abstrak Bahasa Inggris
+├── a4-persembahan.tex                # Halaman Persembahan
+├── a5-katapengantar.tex              # Kata Pengantar
+├── a6-daftarsingkatan.tex            # Daftar Singkatan
+├── a7-pustaka.bib                    # Daftar Pustaka (BibTeX)
+├── a8-lampiran.tex                   # Lampiran
+├── a9-motto.tex                      # Motto (opsional)
+├── b1-bab1.tex                       # BAB 1 - Pendahuluan
+├── b2-bab2.tex                       # BAB 2 - Tinjauan Pustaka
+├── b3-bab3.tex                       # BAB 3 - Metode Penelitian
+├── b4-bab4.tex                       # BAB 4 - Hasil dan Pembahasan
+├── b5-bab5.tex                       # BAB 5 - Kesimpulan dan Saran
+├── b6-bab6.tex                       # BAB 6 - Tutorial LaTeX (opsional)
+├── gambar/                           # Folder gambar
+│   └── logo-poliwangi.png
+├── kode/                             # Folder kode program
+└── untouch/                          # File sistem (jangan diubah)
+    ├── xx-daftar.tex
+    ├── xx-daftarpustaka.tex
+    ├── xx-pengesahan.tex
+    ├── xx-pernyataan-poliwangi.tex
+    ├── xx-persetujuan-ujian.tex
+    ├── xx-preambles.tex
+    ├── xx-sampul-laporan.tex
+    └── xx-sampuldalam-laporan.tex
+```
+
+### Folder `proposal/` (Proposal Tugas Akhir)
+
+```
+proposal/
+├── proposal.tex                      # File utama untuk kompilasi proposal
+├── a0-identitas.tex                  # Isi identitas (WAJIB DIISI)
+├── a2-abstrak.tex                    # Abstrak Bahasa Indonesia  
+├── a3-abstract.tex                   # Abstrak Bahasa Inggris
+├── a6-daftarsingkatan.tex            # Daftar Singkatan
+├── a7-pustaka.bib                    # Daftar Pustaka (BibTeX)
+├── b1-bab1.tex                       # BAB 1 - Pendahuluan
+├── b2-bab2.tex                       # BAB 2 - Tinjauan Pustaka
+├── b3-bab3.tex                       # BAB 3 - Metode Penelitian
+├── gambar/                           # Folder gambar
+│   └── logo-poliwangi.png
+├── kode/                             # Folder kode program
+└── untouch/                          # File sistem (jangan diubah)
+    ├── xx-daftar.tex
+    ├── xx-daftarpustaka.tex
+    ├── xx-persetujuan-proposal.tex
+    ├── xx-preambles.tex
+    ├── xx-sampul-proposal.tex
+    └── xx-sampuldalam-proposal.tex
 ```
 
 ---
@@ -124,7 +169,7 @@ Template ini mendukung warna cover yang berbeda sesuai program studi Poliwangi. 
    **ATAU** import langsung dari GitHub:
    - Klik **New Project** → **Import from GitHub**
    - Pilih repository: `template-TugasAkhir-latex-poliwangi`
-   - Pilih folder `Project` atau `proposal` sesuai kebutuhan
+   - Pilih folder `laporan` atau `proposal` sesuai kebutuhan
 
 3. **Set Main File & Compile**:
    - Klik menu di kiri atas (☰)
@@ -180,7 +225,7 @@ Template ini mendukung warna cover yang berbeda sesuai program studi Poliwangi. 
 2. **Buka di TeXstudio**:
    - Buka TeXstudio
    - Klik **File** → **Open**
-   - Navigate ke folder `Project/` dan buka `laporan.tex`
+   - Navigate ke folder `laporan/` dan buka `laporan.tex`
    - ATAU ke folder `proposal/` dan buka `proposal.tex`
 
 3. **Compile**:
@@ -255,7 +300,7 @@ brew install --cask visual-studio-code
    ```
 
 2. **Buka dengan Editor**:
-   - **Texifier:** File → Open → pilih `Project/laporan.tex` atau `proposal/proposal.tex`
+   - **Texifier:** File → Open → pilih `laporan/laporan.tex` atau `proposal/proposal.tex`
    - **TeXstudio:** Same as Windows
    - **VS Code:** Open folder, lalu buka file `.tex`, tekan `Cmd+S` untuk compile
 
@@ -288,7 +333,7 @@ sudo apt install texlive-latex-base texlive-latex-extra texlive-fonts-recommende
 ```bash
 # Clone repository
 git clone https://github.com/codelabs-poliwangi/template-TugasAkhir-latex-poliwangi.git
-cd template-TugasAkhir-latex-poliwangi/Project
+cd template-TugasAkhir-latex-poliwangi/laporan
 
 # Compile via command line
 pdflatex laporan.tex
