@@ -4,90 +4,290 @@
 %==================================================================
 
 \chapter[TINJAUAN PUSTAKA]{\\ TINJAUAN PUSTAKA}
+\section{Landasan Teori}
+\subsection{Usaha \textit{Food \& Beverages} / F\&B}
+Industri Food and Beverage (F\&B) merupakan sektor usaha yang bergerak dalam penyediaan makanan dan minuman untuk konsumsi masyarakat luas. Sektor ini sangat heterogen karena mencakup berbagai bentuk usaha, mulai dari usaha mikro seperti warung makan tradisional, kedai kopi dan kafe, hingga restoran berbasis franchise, layanan pesan-antar makanan, serta pusat kuliner modern. Keberadaan usaha-usaha tersebut tidak hanya memenuhi kebutuhan konsumsi harian masyarakat, tetapi juga turut menjadi bagian penting dari aktivitas sosial dan budaya masyarakat Indonesia. Menurut data statistik UMKM yang dirilis oleh \cite{kadin_umkm2024}, sektor penyediaan akomodasi, makanan, dan minuman termasuk ke dalam kelompok usaha mikro, kecil dan menengah (UMKM) dengan jumlah unit usaha yang sangat besar, yaitu lebih dari 6,4 juta unit usaha. Angka ini menunjukkan bahwa sektor F\&B merupakan salah satu subsektor UMKM terbesar di Indonesia selain perdagangan besar dan eceran. KADIN mengklasifikasikan sektor ini sebagai salah satu penggerak utama perekonomian di tingkat lokal karena usaha-usaha di dalamnya tersebar secara merata di berbagai wilayah Indonesia, baik di perkotaan maupun di daerah.
 
-\section{Teori Dasar Komponen Elektronika}
-Bagian ini membahas teori dasar mengenai komponen elektronika yang digunakan dalam perancangan sistem. Setiap komponen memiliki karakteristik khusus yang mempengaruhi kinerja keseluruhan sistem. Pemahaman tentang karakteristik komponen-komponen ini sangat penting dalam mengoptimalkan fungsi dan stabilitas rangkaian.
+\indent Lebih lanjut, publikasi Statistik Penyediaan Makanan dan Minuman 2023 yang diterbitkan oleh \cite{bps_mamin2023} memberikan gambaran yang lebih terperinci terkait kondisi sektor F\&B. Data BPS mencatat bahwa pada tahun 2023, total unit usaha yang bergerak di bidang penyediaan makanan dan minuman mencapai sekitar 4,85 juta unit usaha. Angka ini menunjukkan skala besar partisipasi pelaku usaha di sektor F\&B dalam penyediaan kebutuhan pangan dan minuman bagi masyarakat. Selain itu, sektor ini juga berperan signifikan dalam penyerapan tenaga kerja, di mana data BPS menunjukkan bahwa sektor penyediaan makanan dan minuman menyerap tenaga kerja tidak kurang dari 9,80 juta orang, yang mengindikasikan kontribusi pentingnya terhadap penyerapan angkatan kerja domestik.
 
-\subsection{Jenis dan Karakteristik Komponen Pasif}
-Komponen pasif seperti resistor, kapasitor, dan induktor memiliki fungsi dasar dalam pengaturan arus dan tegangan dalam sirkuit. Bagian ini menguraikan jenis-jenis komponen pasif serta karakteristik utama yang mempengaruhi performa dan fungsi komponen tersebut dalam sirkuit elektronika.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.85\textwidth]{gambar/data trend fnb.jpg}
+        \caption{Tren Pertumbuhan PDB Industri Food and Beverage (F\&B) Indonesia Tahun 2013--2024}
+        \label{fig:gdp-fnb}
+    \end{figure}
 
-\subsection{Jenis dan Karakteristik Komponen Aktif}
-Komponen aktif, seperti transistor, dioda, dan IC, memainkan peran penting dalam penguatan dan pengaturan sinyal. Bagian ini menjelaskan berbagai jenis komponen aktif yang digunakan dalam proyek serta karakteristik utamanya, yang menentukan efektivitas dan efisiensi sistem elektronika.
+\indent Berdasarkan data yang dirilis oleh \cite{crifasia_fnb2024}, industri Food and Beverage (F\&B) di Indonesia menunjukkan tren pertumbuhan Produk Domestik Bruto (PDB) yang cenderung meningkat secara konsisten dalam periode 2013 hingga 2024. Nilai PDB sektor F\&B tercatat meningkat dari sekitar Rp459,28 triliun pada tahun 2013 menjadi sekitar Rp887,36 triliun pada tahun 2024, yang mengindikasikan peran strategis sektor ini sebagai salah satu kontributor utama dalam perekonomian nasional. Pada periode sebelum pandemi COVID-19, yaitu tahun 2013 hingga 2019, sektor F\&B mencatat tingkat pertumbuhan yang relatif stabil dan kuat, dengan laju pertumbuhan tahunan berada pada kisaran 7–9\%. Pertumbuhan tersebut didorong oleh meningkatnya konsumsi rumah tangga, urbanisasi, serta berkembangnya industri kuliner dan layanan makanan berbasis digital. Namun, pada tahun 2020, terjadi perlambatan signifikan akibat dampak pandemi COVID-19, yang tercermin dari penurunan laju pertumbuhan PDB sektor F\&B hingga sekitar 1,58\%. Kondisi ini mencerminkan menurunnya aktivitas ekonomi, pembatasan mobilitas masyarakat, serta berkurangnya aktivitas konsumsi di sektor makanan dan minuman. Memasuki periode pascapandemi, sektor F\&B menunjukkan tanda-tanda pemulihan yang cukup kuat. Pada tahun 2021 hingga 2024, laju pertumbuhan kembali meningkat dan relatif stabil di kisaran 2,5\% hingga 4,5\% per tahun. Pemulihan ini didorong oleh pelonggaran pembatasan sosial, peningkatan aktivitas ekonomi, serta adaptasi pelaku usaha F\&B terhadap transformasi digital, seperti pemanfaatan platform pemesanan daring dan layanan pesan-antar makanan. Secara keseluruhan, tren ini menunjukkan bahwa sektor F\&B memiliki daya tahan yang baik terhadap guncangan ekonomi dan tetap menjadi sektor yang prospektif dalam mendukung pertumbuhan ekonomi Indonesia.
 
-\subsection{Peran dan Fungsi Modul dalam Sistem Elektronika}
-Modul-modul elektronika memberikan fungsionalitas tambahan yang membantu dalam memperkuat performa sistem. Bagian ini mengulas modul-modul yang sering digunakan, seperti modul daya atau komunikasi, serta peran masing-masing dalam mendukung integrasi sistem yang lebih efisien.
+\indent Dalam era digital saat ini, keputusan konsumen dalam memilih tempat makan tidak lagi hanya bergantung pada pengalaman langsung, tetapi juga dipengaruhi oleh ulasan dan komentar yang tersedia di platform digital seperti Google Maps, Instagram, dan aplikasi pesan-antar makanan. Ulasan konsumen menjadi aset penting bagi pelaku usaha F\&B karena mencerminkan persepsi pelanggan terhadap kualitas produk dan layanan yang diberikan.\cite{dhendra_benchmarking_2025}.\\
+\indent Aspek-aspek yang umumnya menjadi perhatian konsumen dalam industri F\&B meliputi kualitas makanan (food quality), kualitas pelayanan (service), dan harga (price). Ketiga aspek ini sering kali menjadi faktor penentu kepuasan pelanggan dan menjadi tema dominan dalam ulasan konsumen. Oleh karena itu, pemahaman mendalam terhadap persepsi konsumen pada aspek-aspek tersebut sangat penting bagi pelaku usaha untuk meningkatkan daya saing dan kualitas layanan mereka.
 
-\subsection{Analisis Daya dan Efisiensi Komponen}
-Analisis daya dan efisiensi komponen adalah aspek penting dalam desain sistem yang hemat energi. Bagian ini membahas cara-cara mengevaluasi dan mengoptimalkan daya yang dikonsumsi oleh komponen, yang berperan dalam meningkatkan efisiensi energi dari sistem secara keseluruhan.
 
-\section{Sistem dan Teknik Rangkaian Elektronika}
-Bagian ini membahas berbagai sistem dan teknik yang digunakan dalam perancangan rangkaian elektronika, baik analog maupun digital. Setiap teknik ini memungkinkan sistem berfungsi dengan lebih efektif sesuai dengan kebutuhan aplikasi.
+\subsection{\textit{Aspect Based Sentiment Analysis} (ABSA)}
+\indent \textit{Aspect-Based Sentiment Analysis} (ABSA) merupakan pendekatan analisis sentimen yang lebih mendalam dibandingkan dengan analisis sentimen konvensional. Jika analisis sentimen tradisional hanya mengklasifikasikan sentimen secara keseluruhan pada level dokumen atau kalimat, ABSA mampu mengidentifikasi sentimen terhadap aspek-aspek spesifik yang disebutkan dalam teks \cite{sejati_aspect-based_2024}.\\
+\indent Menurut \cite{perwira_domain-specific_2025}, ABSA terdiri dari dua tugas utama. Pertama adalah aspect \textit{extraction}, yaitu proses mengidentifikasi aspek-aspek yang disebutkan dalam teks dan Kedua adalah sentiment classification, yaitu menentukan polaritas sentimen (positif, negatif, atau netral) terhadap setiap aspek yang telah diidentifikasi. Pendekatan ini sangat relevan untuk menganalisis ulasan konsumen yang seringkali mengandung opini berbeda terhadap berbagai aspek dalam satu produk atau layanan.
 
-\subsection{Konsep Dasar Rangkaian Analog}
-Rangkaian analog digunakan untuk memproses sinyal kontinu dan memainkan peran penting dalam berbagai aplikasi. Bagian ini menjelaskan prinsip-prinsip dasar yang digunakan dalam rangkaian analog, termasuk elemen-elemen utamanya dan penggunaannya.
+\indent \cite{maretta_aspect-based_2025} menjelaskan bahwa ABSA memiliki beberapa keunggulan dibandingkan analisis sentimen tradisional. Pertama, ABSA memberikan insight yang lebih detail dan actionable bagi pelaku usaha. Kedua, ABSA dapat menangani kontradiksi sentimen dalam satu ulasan dengan lebih baik. Ketiga, ABSA memungkinkan agregasi sentimen berdasarkan aspek tertentu, sehingga perusahaan dapat mengidentifikasi kekuatan dan kelemahan spesifik dari produk atau layanan mereka.\\
+\indent Dalam implementasinya, ABSA dapat dilakukan dengan berbagai pendekatan, mulai dari metode berbasis lexicon, machine learning tradisional, hingga deep learning. Penelitian terkini menunjukkan bahwa pendekatan berbasis transformer, khususnya BERT dan variannya, memberikan performa terbaik dalam tugas ABSA \cite{jazuli_optimizing_2024}. Model-model ini mampu menangkap konteks semantik yang kompleks dan relasi antara aspek dengan kata-kata sentiment-bearing di sekitarnya.
 
-\subsection{Konsep Dasar Rangkaian Digital}
-Rangkaian digital beroperasi dengan sinyal diskrit, cocok untuk pemrosesan informasi digital. Bagian ini menguraikan prinsip dasar rangkaian digital serta komponen-komponen utama yang mendukung fungsi-fungsi digital dalam proyek ini.
+\subsection{Transformer}
+Transformer merupakan arsitektur neural network yang diperkenalkan oleh \cite{vaswani_attention_2017} melalui paper \textit{Attention is All You Need}. Arsitektur ini dikembangkan sebagai solusi atas keterbatasan model sebelumnya seperti Recurrent Neural Network (RNN) dan Long Short-Term Memory (LSTM), yang memproses teks secara berurutan sehingga kurang efisien dan sulit menangkap hubungan kata yang berjauhan dalam sebuah kalimat. Berbeda dengan model tersebut, Transformer tidak memproses data secara berurutan, melainkan menggunakan mekanisme attention untuk memahami hubungan antar kata secara langsung.
 
-\subsection{Teknik Pengolahan Sinyal pada Sistem Elektronika}
-Pengolahan sinyal adalah proses penting untuk interpretasi informasi dari lingkungan. Bagian ini membahas metode umum dalam pengolahan sinyal yang diterapkan pada sistem elektronika, termasuk teknik yang digunakan dalam pemfilteran atau pemrosesan data.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{gambar/multihead-attention-self-head-attention.png}
+    \caption{Diagram multi-head attention mechanism}
+    \label{fig:multi-head-attention}
+\end{figure}
 
-\subsection{Pengkabelan dan Pengaturan Sirkuit untuk Keandalan Sistem}
-Pengkabelan dan tata letak yang baik meningkatkan keandalan sistem secara keseluruhan. Bagian ini menguraikan teknik pengkabelan dan pengaturan sirkuit yang efektif, serta bagaimana hal ini dapat mempengaruhi performa sistem.
+Inti dari Transformer adalah mekanisme self-attention, yaitu cara model memperhatikan seluruh kata dalam satu kalimat secara bersamaan. Dengan self-attention, setiap kata dapat “melihat” kata lain dalam kalimat dan menentukan kata mana yang paling berpengaruh terhadap maknanya. Mekanisme ini membuat model mampu memahami konteks dengan lebih baik, baik untuk kata yang letaknya berdekatan maupun yang berjauhan dalam satu kalimat.
 
-\subsection{Pengendalian dan Penggerak (Motor Driver, Relay, dsb.)}
-Bagian ini menjelaskan penggunaan penggerak seperti motor driver dan relay untuk menggerakkan komponen mekanis. Diperlukan teknik pengendalian khusus untuk memastikan bahwa setiap penggerak bekerja sesuai dengan tujuan sistem.
+Untuk meningkatkan kemampuan pemahaman konteks, Transformer menggunakan multi-head attention. Pada mekanisme ini, attention tidak hanya dilakukan sekali, tetapi melalui beberapa head secara paralel. Setiap head mempelajari hubungan kata dari sudut pandang yang berbeda, misalnya hubungan makna, hubungan tata bahasa, atau hubungan konteks tertentu. Hasil dari seluruh head tersebut kemudian digabungkan, sehingga model memperoleh representasi teks yang lebih kaya dan informatif.
 
-\section{Teknologi yang Digunakan}
-Bagian ini mengulas teknologi yang umum digunakan dalam proyek berbasis elektronika, seperti mikrokontroler, sensor, aktor, dan teknologi komunikasi nirkabel. Teknologi ini memungkinkan sistem untuk merespons lingkungan dan berinteraksi dengan pengguna.
+Karena Transformer memproses seluruh kata secara paralel, informasi urutan kata tidak secara otomatis diketahui oleh model. Oleh sebab itu, Transformer menambahkan positional encoding, yaitu informasi tambahan yang menunjukkan posisi setiap kata dalam kalimat. Dengan adanya positional encoding, model tetap dapat membedakan urutan kata, sehingga makna kalimat tidak berubah meskipun diproses secara bersamaan.
 
-\subsection{Mikrokontroler dan Mikroprosesor}
-Mikrokontroler dan mikroprosesor berfungsi sebagai unit pemrosesan utama dalam sistem elektronika. Bagian ini menguraikan arsitektur dasar, bahasa pemrograman yang relevan, serta protokol komunikasi yang sering digunakan dalam proyek ini.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{gambar/transformer.png}
+    \caption{Diagram arsitektur Transformer}
+    \label{fig:transformer-architecture}
+\end{figure}
 
-\subsection{Sensor dan Aktuator}
-Sensor dan aktuator memungkinkan interaksi sistem dengan lingkungannya. Bagian ini membahas jenis-jenis sensor yang digunakan, cara kerja, dan integrasinya ke dalam sistem agar sistem dapat mengumpulkan data dan merespons secara aktif.
+Secara struktur, Transformer terdiri dari dua bagian utama, yaitu encoder dan decoder. Encoder bertugas mengolah teks input dan menghasilkan representasi yang sudah memahami konteks kalimat. Setiap lapisan encoder terdiri dari mekanisme multi-head self-attention yang diikuti oleh feed-forward neural network, serta dilengkapi dengan residual connection dan layer normalization agar proses pelatihan model tetap stabil. Decoder memiliki struktur yang mirip, namun digunakan untuk menghasilkan keluaran berdasarkan hasil dari encoder, terutama pada tugas seperti penerjemahan bahasa.
 
-\subsection{Teknologi Nirkabel}
-Teknologi nirkabel seperti Bluetooth dan Wi-Fi memungkinkan komunikasi jarak jauh dalam sistem IoT. Bagian ini menguraikan jenis teknologi nirkabel yang relevan, termasuk protokol komunikasi dan aspek keamanan yang perlu dipertimbangkan.
+Keunggulan utama Transformer adalah kemampuannya melakukan pemrosesan data secara paralel, sehingga proses pelatihan menjadi lebih cepat dan efisien dibandingkan model sekuensial. Selain itu, Transformer tidak mengalami masalah vanishing gradient yang sering muncul pada RNN, serta mampu menangani teks dengan panjang yang bervariasi. Berbagai keunggulan tersebut menjadikan Transformer sebagai arsitektur dasar bagi banyak model bahasa modern dan sebagai standar utama dalam pengembangan sistem Natural Language Processing saat ini.
 
-\section{Metode Kontrol dan Kecerdasan Buatan}
-Bagian ini membahas metode kontrol dan kecerdasan buatan yang diterapkan dalam sistem elektronika untuk mencapai pengendalian yang lebih cerdas dan otomatis, seperti kontrol PID, logika fuzzy, dan deep learning.
+\subsection{\textit{Bidirectional Encoder Representations from Transformers} (BERT)}
+BERT (\textit{Bidirectional Encoder Representations from Transformers}) adalah model pre-trained language representation yang dikembangkan oleh Google AI pada tahun 2018. BERT merupakan salah satu model transformer-based yang paling berpengaruh dalam perkembangan NLP modern. Berbeda dengan model language tradisional yang bersifat unidirectional (hanya membaca teks dari kiri ke kanan atau sebaliknya), BERT menggunakan pendekatan bidirectional yang memungkinkan model untuk memahami konteks dari kedua arah secara bersamaan.
 
-\subsection{Pengendalian PID (Proportional-Integral-Derivative)}
-PID adalah metode kontrol yang efektif dalam mengatur respons sistem. Bagian ini menjelaskan prinsip dasar PID, aplikasinya dalam pengaturan sistem elektronika, serta teknik tuning yang dapat meningkatkan stabilitas dan respons sistem.
+BERT dilatih menggunakan dua strategi pre-training yang inovatif. Pertama adalah \textit{Masked Language Modeling} (MLM), di mana beberapa token dalam input sequence secara acak di-mask dan model dilatih untuk memprediksi token yang di-mask tersebut berdasarkan konteks di sekitarnya. Kedua adalah \textit{Next Sentence Prediction} (NSP), di mana model dilatih untuk memprediksi apakah dua kalimat yang diberikan merupakan pasangan kalimat yang berurutan dalam teks asli atau tidak. Kedua strategi ini memungkinkan BERT untuk mempelajari representasi bahasa yang kaya dan kontekstual.
 
-\subsection{Fuzzy Logic Control}
-Logika fuzzy adalah metode kontrol fleksibel yang sering digunakan dalam sistem nonlinear. Bagian ini menjelaskan konsep dasar logika fuzzy, serta cara implementasi dan manfaatnya dalam pengendalian sistem yang kompleks.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{gambar/BERT.png}
+    \caption{Diagram arsitektur BERT}
+    \label{fig:bert-architecture}
+\end{figure}
 
-\subsection{Deep Learning}
-Deep learning memungkinkan sistem untuk belajar dari data, yang sangat berguna dalam aplikasi otomatisasi. Bagian ini menguraikan algoritma dasar dalam deep learning, seperti CNN dan RNN, serta penerapannya dalam pengembangan sistem IoT.
+Arsitektur BERT terdiri dari beberapa layer transformer encoder yang ditumpuk. Model BERT tersedia dalam beberapa varian, dengan yang paling umum adalah BERT-Base (12 layer, 768 hidden units, 12 attention heads, 110M parameters) dan BERT-Large (24 layer, 1024 hidden units, 16 attention heads, 340M parameters). Setiap layer dalam BERT mampu menangkap informasi linguistik pada level yang berbeda, dari fitur sintaksis pada layer awal hingga informasi semantik kompleks pada layer yang lebih dalam.
 
-\subsection{Perbandingan dan Pemilihan Metode yang Sesuai}
-Bagian ini membahas perbandingan antara berbagai metode kontrol yang tersedia, menjelaskan kelebihan dan kekurangannya masing-masing, serta bagaimana memilih metode yang paling sesuai untuk aplikasi proyek ini.
+Salah satu keunggulan utama BERT adalah kemampuannya untuk di-fine-tune pada berbagai downstream tasks dengan menambahkan layer klasifikasi sederhana di atas pre-trained model. Pendekatan transfer learning ini memungkinkan BERT mencapai performa state-of-the-art pada berbagai benchmark NLP seperti GLUE, SQuAD, dan SWAG dengan relatif sedikit data labeled dan waktu training yang lebih singkat dibandingkan melatih model dari awal.
 
-\section{Konsep Engineering Design Process}
-Engineering Design Process adalah metodologi sistematis yang digunakan untuk merancang sistem secara efektif. Bagian ini menguraikan prinsip utama dan langkah-langkah dari Engineering Design Process dalam konteks pengembangan sistem elektronika.
+\cite{dhendra_benchmarking_2025} menjelaskan bahwa BERT telah menjadi model dasar bagi pengembangan berbagai varian model language yang disesuaikan dengan bahasa atau domain tertentu. Kemampuan BERT dalam menangkap konteks semantik yang kompleks membuatnya sangat efektif untuk tugas-tugas yang memerlukan pemahaman mendalam terhadap teks, termasuk ABSA.
 
-\subsection{Pengertian dan Langkah-langkah Engineering Design Process}
-Engineering Design Process adalah proses desain iteratif yang mencakup beberapa tahapan untuk mencapai desain yang optimal. Bagian ini menjelaskan langkah-langkah dasar yang terlibat dan bagaimana proses ini diadaptasi dalam proyek ini.
 
-\subsection{Aplikasi Engineering Design Process pada Proyek Elektronika}
-Bagian ini membahas penerapan Engineering Design Process dalam proyek elektronika untuk mencapai hasil desain yang optimal. Diuraikan langkah-langkah praktis dalam menerapkan metodologi ini.
+\subsection{IndoBERT}
+\indent IndoBERT adalah model pre-trained language representation berbasis arsitektur BERT yang dilatih secara khusus menggunakan korpus Bahasa Indonesia. Model ini dikembangkan oleh \cite{wilie_indonlu_2020} sebagai bagian dari proyek IndoNLU (Indonesian Natural Language Understanding) yang bertujuan untuk menyediakan benchmark dan resources untuk evaluasi pemahaman bahasa Indonesia.
+IndoBERT dilatih menggunakan korpus yang sangat besar, mencakup lebih dari 4 miliar token dari berbagai sumber teks Bahasa Indonesia, termasuk Wikipedia Indonesia, berita online, dan berbagai dokumen web. Volume data training yang besar ini memungkinkan IndoBERT untuk mempelajari representasi bahasa Indonesia yang komprehensif, termasuk karakteristik linguistik yang unik seperti fleksibilitas sintaksis, penggunaan afiks, dan variasi dialek.
 
-\subsection{Studi Kasus Implementasi Engineering Design Process dalam Desain Elektronika}
-Studi kasus ini menunjukkan contoh penerapan Engineering Design Process dalam desain sistem yang relevan dengan proyek. Dengan studi kasus ini, pembaca dapat memahami implementasi proses desain secara nyata.
+\cite{wilie_indonlu_2020} melaporkan bahwa IndoBERT secara konsisten mengungguli model multilingual seperti mBERT (multilingual BERT) dan XLM-R (Cross-lingual Language Model - RoBERTa) pada berbagai tugas NLP Bahasa Indonesia. Keunggulan ini menunjukkan bahwa pre-training pada korpus yang language-specific memberikan keuntungan signifikan dibandingkan model yang dilatih pada multiple languages secara bersamaan.
 
-\subsection{Teknik Evaluasi dan Optimasi Desain}
-Teknik evaluasi dan optimasi desain merupakan langkah penting dalam proses desain yang berkelanjutan. Bagian ini menjelaskan metode yang digunakan untuk mengevaluasi dan menyempurnakan desain agar mencapai hasil terbaik.
+Penelitian \cite{dhendra_benchmarking_2025} melakukan benchmarking komprehensif antara IndoBERT, mBERT, dan XLM-R untuk klasifikasi sentimen pada ulasan layanan e-government Indonesia. Hasil penelitian menunjukkan bahwa IndoBERT mencapai akurasi tertinggi sebesar 88,1\%, dibandingkan dengan mBERT (85,3\%) dan XLM-R (86,7\%). Penelitian ini juga menemukan bahwa IndoBERT lebih robust dalam menangani variasi bahasa informal dan bahasa campuran yang sering muncul dalam ulasan konsumen.
+Dalam konteks ABSA, IndoBERT telah digunakan secara luas dengan hasil yang sangat menjanjikan. 
 
-\section{Penelitian Terdahulu yang Relevan}
-Bagian ini berisi ulasan terhadap penelitian terdahulu yang relevan dengan proyek ini. Tujuannya adalah untuk melihat pendekatan yang telah digunakan, menemukan kelebihan dan kekurangannya, serta mengidentifikasi inovasi yang dapat dikembangkan.
+\cite{maretta_aspect-based_2025} melaporkan bahwa fine-tuned IndoBERT mencapai akurasi sebesar 96\% dan macro F1-score sebesar 0.90 dalam analisis sentimen berbasis aspek pada ulasan layanan kesehatan. \cite{jazuli_optimizing_2024} juga melaporkan performa yang sangat baik dengan akurasi mencapai 97,9\% dalam ABSA pada ulasan mahasiswa. Hasil-hasil ini menunjukkan bahwa IndoBERT merupakan pilihan yang sangat tepat untuk tugas ABSA pada Bahasa Indonesia.
 
-\subsection{Tinjauan Penelitian Terdahulu tentang Proyek Serupa}
-Bagian ini membahas penelitian terdahulu yang serupa dengan proyek ini. Tinjauan ini bertujuan untuk memahami bagaimana proyek ini dapat memberikan kontribusi yang berbeda atau lebih baik.
+\cite{perwira_domain-specific_2025} menjelaskan bahwa keberhasilan IndoBERT dalam ABSA tidak hanya karena kemampuannya menangkap konteks semantik, tetapi juga karena model ini mampu beradaptasi dengan baik terhadap domain-specific language melalui proses fine-tuning. Penelitian mereka menunjukkan bahwa domain-specific fine-tuning pada IndoBERT meningkatkan akurasi ekstraksi aspek dan klasifikasi sentimen pada ulasan pariwisata hingga mencapai 84\%.
+IndoBERT tersedia dalam beberapa varian, dengan IndoBERT-base-1 menjadi varian yang paling banyak digunakan dalam penelitian. Varian ini memiliki konfigurasi yang sama dengan BERT-Base (12 layer, 768 hidden units, 12 attention heads) tetapi menggunakan vocabulary dan tokenizer yang disesuaikan dengan karakteristik Bahasa Indonesia. Model ini dapat diakses secara bebas melalui Hugging Face Model Hub, memudahkan para peneliti dan praktisi untuk menggunakannya dalam berbagai aplikasi NLP Bahasa Indonesia.
 
-\subsection{Analisis Kekurangan dan Kelebihan Metode pada Penelitian Terdahulu}
-Setiap metode yang digunakan dalam penelitian terdahulu memiliki kelebihan dan kekurangan. Bagian ini mengidentifikasi aspek yang perlu diperbaiki atau dikembangkan lebih lanjut berdasarkan analisis metode-metode tersebut.
+\subsection{\textit{REST API}}
+REST (Representational State Transfer) API merupakan arsitektur yang banyak digunakan dalam pengembangan web services dan aplikasi terdistribusi. Konsep REST pertama kali diperkenalkan oleh Fielding (2000) sebagai gaya arsitektur untuk sistem berbasis jaringan. REST API memungkinkan komunikasi antara client dan server melalui protokol HTTP dengan menggunakan metode standar seperti GET, POST, PUT, dan DELETE, sehingga memudahkan pertukaran data secara terstruktur dan efisien \cite{fielding_rest_2000}.
 
-\subsection{Inovasi dan Kontribusi yang Dibawa dalam Penelitian Ini}
-Penelitian ini membawa inovasi tertentu yang berkontribusi dalam memperkaya hasil penelitian sebelumnya. Bagian ini menjelaskan kontribusi utama proyek ini terhadap bidang elektronika, serta perbedaan yang ditawarkan.
+Dalam konteks machine learning dan Natural Language Processing (NLP), REST API menjadi antarmuka (interface) yang umum digunakan untuk proses deployment model. Melalui REST API, model yang telah dilatih dapat diakses oleh aplikasi lain secara on-demand tanpa harus diintegrasikan langsung ke dalam sistem klien. Pendekatan ini memungkinkan pemisahan yang jelas antara proses pengembangan model dan penggunaan model dalam aplikasi produksi \cite{ml_rest_api_survey}.
+
+Prinsip dasar REST API meliputi beberapa karakteristik utama. Pertama, stateless, di mana setiap request dari client ke server harus mengandung seluruh informasi yang diperlukan untuk memproses permintaan tersebut. Kedua, client–server separation, yaitu pemisahan antara antarmuka pengguna dan pengelolaan data. Ketiga, cacheable, yang memungkinkan response disimpan sementara untuk meningkatkan efisiensi. Keempat, layered system, yang memungkinkan arsitektur sistem dibangun secara berlapis. Kelima, uniform interface, yang menyederhanakan komunikasi antara client dan server \cite{fielding_rest_2000}.
+
+Dalam konteks deployment model machine learning, REST API memberikan beberapa keuntungan utama. Pertama, model dapat diakses oleh berbagai jenis aplikasi klien, seperti aplikasi web, mobile, maupun desktop, tanpa perlu integrasi langsung dengan kode model. Kedua, REST API memungkinkan model untuk diperbarui atau diganti tanpa memengaruhi aplikasi klien yang menggunakannya. Ketiga, REST API mendukung horizontal scaling, di mana beberapa instance API dapat dijalankan secara paralel untuk menangani beban permintaan yang tinggi \cite{mlops_api_deployment}.
+
+Pada deployment model NLP, REST API umumnya menerima input berupa teks dalam format JSON, memproses teks tersebut menggunakan model yang telah dilatih, dan mengembalikan hasil prediksi juga dalam format JSON. Dalam kasus Aspect-Based Sentiment Analysis (ABSA), API menerima ulasan konsumen sebagai input dan menghasilkan keluaran berupa klasifikasi sentimen untuk setiap aspek yang dianalisis, seperti kualitas makanan, pelayanan, dan harga.
+
+Framework Python seperti FastAPI banyak digunakan untuk membangun REST API pada sistem machine learning karena kemudahan penggunaan, performa yang baik, serta integrasi yang mulus dengan library pembelajaran mesin seperti PyTorch dan TensorFlow \cite{fastapi_docs}. FastAPI secara khusus menyediakan fitur modern seperti automatic API documentation, validasi data menggunakan Pydantic, serta dukungan asynchronous programming, sehingga sangat sesuai untuk deployment model production-grade \cite{fastapi_docs}.
+
+\section{Penelitian Terkait}
+Berikut adalah ringkasan penelitian-penelitian terkait yang relevan dengan topik ABSA menggunakan IndoBERT dan model transformer lainnya:
+
+\begin{longtable}{|c|p{1.2cm}|p{2.8cm}|p{4cm}|p{5cm}|}
+\caption{Ringkasan Penelitian Terkait}
+\label{tab:penelitian_terkait} \\
+\hline
+\textbf{No.} & \textbf{Tahun}& \textbf{Peneliti} & \textbf{Judul dan Metode} & \textbf{Kontribusi Utama} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{No.} & \textbf{Tahun} & \textbf{Peneliti} & \textbf{Judul dan Metode} & \textbf{Kontribusi Utama} \\
+\hline
+\endhead
+
+\endfoot
+
+\hline
+\endlastfoot
+
+\small
+1 &
+2025 &
+Perwira, Permadi, Purnamasari \& Agusdin &
+\textit{Domain-Specific Fine-Tuning of IndoBERT for Aspect-Based Sentiment Analysis in Indonesian Travel UGC}.  
+Metode: Fine-tuned IndoBERT (domain-specific), cosine similarity, CRISP-DM &
+Menunjukkan bahwa fine-tuning berbasis domain meningkatkan akurasi ekstraksi aspek dan sentimen hingga 84\%. Penelitian ini memperkenalkan pendekatan similarity-based aspect mapping untuk identifikasi aspek secara otomatis. \\
+\hline
+
+2 &
+2025 &
+Maretta \& Meiriza &
+\textit{Aspect-Based Sentiment Analysis of Hospital Service Reviews Using Fine-Tuned IndoBERT}.  
+Metode: Fine-tuned IndoBERT, lexicon-based extraction, class weight balancing &
+Mencapai performa tinggi dengan akurasi 96\% dan macro-F1 sebesar 0.90 pada domain layanan kesehatan. Menegaskan efektivitas strategi penyeimbangan kelas pada data dengan distribusi label tidak seimbang. \\
+\hline
+
+3 &
+2025 &
+Dhendra \& Gayuh Utomo &
+\textit{Benchmarking IndoBERT and Transformer Models for Sentiment Classification on Indonesian E-Government Service Reviews}.  
+Metode: IndoBERT, mBERT, XLM-R, CNN, BiLSTM, hybrid labeling &
+Menunjukkan bahwa IndoBERT unggul dengan akurasi 88.1\% dibandingkan model multilingual. Penelitian ini merekomendasikan hybrid labeling untuk meningkatkan kualitas anotasi dataset. \\
+\hline
+
+4 &
+2025 &
+Singgalen &
+\textit{Performance Analysis of IndoBERT for Sentiment Classification in Indonesian Hotel Review Data}.  
+Metode: IndoBERT, sentiment classification &
+Menunjukkan kemampuan IndoBERT dalam menangani karakteristik ulasan hotel yang bersifat informal dan mengandung fenomena code-mixing secara konsisten. \\
+\hline
+
+5 &
+2025 &
+Fiarni \& Cellose &
+\textit{Sentiment Analysis of Indonesian Video Streaming Application Services Reviews Using Fine-Tuning IndoBERT and Aspect Modeling}.  
+Metode: Fine-tuned IndoBERT, CRISP-DM, Tableau &
+Mencapai akurasi sekitar 95\% pada domain layanan OTT dan menyajikan pipeline end-to-end dari analisis sentimen hingga visualisasi hasil. \\
+\hline
+
+6 &
+2024 &
+Yulianti \& Nissa &
+\textit{ABSA of Indonesian Customer Reviews Using IndoBERT: Single-Sentence and Sentence-Pair Classification Approaches}.  
+Metode: IndoBERT embeddings, fine-tuning single-sentence dan sentence-pair &
+Menunjukkan adanya trade-off antara akurasi dan latensi serta peningkatan F1-score melalui penggunaan auxiliary sentence sebagai konteks tambahan. \\
+\hline
+
+7 &
+2024 &
+Jazuli, Widowati \& Kusumaningrum &
+\textit{Optimizing Aspect-Based Sentiment Analysis Using BERT for Comprehensive Analysis of Indonesian Student Feedback}.  
+Metode: IndoBERT, fine-tuning, multi-aspect analysis &
+Mencapai akurasi 97.9\% dan F1-score sebesar 0.974 serta membuktikan efektivitas fine-tuning berbasis domain pada dataset berskala terbatas. \\
+\hline
+
+8 &
+2024 &
+Sejati, Alzami, Marjuni, Indrayani \& Puspitarini &
+\textit{Aspect-Based Sentiment Analysis for Enhanced Understanding of ``Kemenkeu'' Tweets}.  
+Metode: LDA, SpaCy, Gensim, topic modeling &
+Mengombinasikan topic modeling dan ekstraksi kata kunci untuk pemantauan isu publik berbasis ABSA pada media sosial Twitter. \\
+\hline
+
+\end{longtable}
+
+
+
+\subsection{Domain-Specific Fine-Tuning of IndoBERT for ABSA in Indonesian Travel UGC}
+\cite{perwira_domain-specific_2025} menerapkan fine-tuning IndoBERT pada domain pariwisata menggunakan data Google Reviews dengan metode cosine-similarity untuk pencocokan keyword aspek. Hasil penelitian menunjukkan akurasi 84\% dan membuktikan bahwa fine-tuning domain-specific menghasilkan performa lebih baik dibanding model general-purpose. Kontribusi utama adalah penerapan similarity-based aspect mapping untuk identifikasi aspek otomatis.
+
+\subsection{Aspect-Based Sentiment Analysis of Hospital Service Reviews Using Fine-Tuned IndoBERT}
+\cite{maretta_aspect-based_2025} mengembangkan sistem ABSA untuk ulasan layanan rumah sakit menggunakan IndoBERT dengan pendekatan lexicon-based untuk ekstraksi aspek. Penelitian ini menangani class imbalance menggunakan class weight dan mencapai performa tinggi dengan akurasi 96\% dan macro F1-score 0.90 pada domain kesehatan.
+
+\subsection{Sentiment Analysis of Indonesian Video Streaming Application Services Reviews}
+\cite{fiarni_sentiment_2024} menganalisis 32,000 ulasan PlayStore menggunakan fine-tuned IndoBERT dengan framework CRISP-DM. Model mencapai akurasi ~95\% dan mengimplementasikan pipeline end-to-end dengan deployment dashboard Tableau untuk visualisasi hasil ABSA pada domain OTT.
+
+\subsection{Sentiment Analysis of Indonesian Video Streaming Application Services Reviews}
+\cite{fiarni_sentiment_2024} menganalisis 32,000 ulasan PlayStore menggunakan fine-tuned IndoBERT dengan framework CRISP-DM. Model mencapai akurasi ~95\% dan mengimplementasikan pipeline end-to-end dengan deployment dashboard Tableau untuk visualisasi hasil ABSA pada domain OTT.
+
+\subsection{ABSA of Indonesian Customer Reviews Using IndoBERT: Single-Sentence and Sentence-Pair Classification}
+\cite{yulianti_absa_2024} membandingkan pendekatan feature-based, fine-tuning single-sentence, dan sentence-pair dengan auxiliary sentence. Penelitian ini mengevaluasi trade-off efektivitas vs efisiensi, menunjukkan bahwa sentence-pair approach meningkatkan F1-score namun dengan biaya komputasi lebih tinggi.
+
+\subsection{Optimizing Aspect-Based Sentiment Analysis Using BERT for Indonesian Student Feedback}
+\cite{jazuli_optimizing_2024} mengoptimalkan ABSA untuk feedback mahasiswa dengan fine-tuning IndoBERT, mencapai akurasi 97,9\% dan F1-score 0.974. Penelitian ini membuktikan bahwa fine-tuning pada domain spesifik efektif bahkan pada dataset relatif kecil.
+
+\subsection{Aspect-Based Sentiment Analysis for Enhanced Understanding of "Kemenkeu" Tweets}
+\cite{sejati_aspect-based_2024} menganalisis tweet publik menggunakan kombinasi LDA, SpaCy, dan Gensim untuk topic modeling dan ekstraksi keyword aspek. Penelitian ini menunjukkan efektivitas ABSA untuk pemantauan isu publik di media sosial terhadap kebijakan pemerintah.
+
+\subsection{Performance Analysis of IndoBERT for Sentiment Classification in Indonesian Hotel Review Data}
+\cite{singgalen_performance_2025} mengevaluasi performa IndoBERT pada ulasan hotel, menunjukkan kemampuan model menangani bahasa informal dan code-mixing dengan akurasi konsisten pada domain perhotelan.
+
+
+
+\section{Analisis Gap Penelitian}
+Berdasarkan tinjauan terhadap penelitian-penelitian terkait, dapat diidentifikasi beberapa gap penelitian yang menjadi dasar pengembangan penelitian ini:
+
+\subsection{Gap Domain Aplikasi}
+Sebagian besar penelitian ABSA menggunakan IndoBERT telah berfokus pada domain pariwisata \cite{perwira_domain-specific_2025}, kesehatan \cite{maretta_aspect-based_2025}, e-government \cite{dhendra_benchmarking_2025}, aplikasi digital \cite{fiarni_sentiment_2024}, dan pendidikan \cite{jazuli_aspect-based_2023}. Namun, penerapan ABSA berbasis IndoBERT pada sektor Food \& Beverage (F\&B) masih sangat terbatas, padahal sektor ini memiliki karakteristik ulasan yang unik dengan aspek-aspek spesifik seperti kualitas makanan, pelayanan, dan harga yang sangat penting bagi pelaku usaha.
+Sektor F\&B memiliki dinamika yang berbeda dengan domain lain karena:
+\begin{itemize}
+\item Volume ulasan yang sangat tinggi dan terus bertambah secara real-time
+\item Variasi bahasa yang ekstrem, mulai dari formal hingga sangat informal dengan banyak istilah kuliner lokal
+\item Kebutuhan bisnis yang mendesak untuk mendapatkan insight cepat dari feedback konsumen
+\item Sensitivitas tinggi terhadap sentimen konsumen yang dapat langsung berdampak pada reputasi bisnis
+\end{itemize}
+
+Penelitian ini mengisi gap dengan fokus spesifik pada sektor F\&B di Indonesia, khususnya untuk gerai-gerai di Jawa Timur yang memiliki karakteristik ulasan konsumen yang khas.
+
+\subsection{Gap Implementasi dan Deployment}
+Mayoritas penelitian yang ada berfokus pada pengembangan model dan evaluasi performa (\cite{jazuli_optimizing_2024};\cite{yulianti_absa_2024}; \cite{dhendra_benchmarking_2025}), namun hanya sedikit yang membahas secara detail tentang implementasi deployment dalam bentuk layanan yang siap digunakan. Meskipun \cite{fiarni_sentiment_2024} menyediakan dashboard Tableau untuk visualisasi, implementasi dalam bentuk REST API yang dapat diintegrasikan dengan berbagai sistem eksternal masih jarang dilakukan.
+Gap yang teridentifikasi:
+\begin{itemize}
+    \item Kurangnya dokumentasi tentang proses deployment model ABSA ke production environment
+    \item Minimnya pembahasan tentang optimalisasi API untuk handling request secara efisien
+    \item Belum adanya standar arsitektur API untuk layanan ABSA yang dapat diadopsi oleh berbagai stakeholder
+    \item Kurangnya panduan tentang integrasi model ABSA dengan aplikasi web atau sistem enterprise
+\end{itemize}
+
+Penelitian ini mengisi gap dengan:
+\begin{itemize}
+    \item Mengembangkan REST API yang dapat diintegrasikan dengan aplikasi website untuk analisis sentimen real-time
+    \item Menyediakan dokumentasi lengkap tentang arsitektur deployment menggunakan FastAPI
+    \item Menerapkan best practices dalam API design untuk memastikan skalabilitas dan maintainability
+    \item Memberikan contoh implementasi end-to-end dari data preprocessing hingga deployment
+\end{itemize}
+
+\subsection{Gap Metodologi Pengembangan Sistem}
+Sebagian besar penelitian menggunakan framework CRISP-DM (\cite{perwira_domain-specific_2025}; \cite{fiarni_sentiment_2024}) yang lebih berorientasi pada data mining dan kurang fokus pada aspek software engineering dan deployment. Tidak ada penelitian yang menerapkan metodologi pengembangan perangkat lunak yang terintegrasi dengan siklus pengembangan AI/ML secara komprehensif.
+Penelitian ini menggunakan metode Fountain yang lebih sesuai untuk pengembangan sistem berbasis AI dengan karakteristik iteratif dan incremental, memungkinkan:
+\begin{itemize}
+    \item Integrasi antara pengembangan model dan sistem aplikasi secara simultan
+    \item Fleksibilitas dalam melakukan iterasi pada model berdasarkan feedback deployment
+    \item Dokumentasi yang terstruktur untuk setiap fase pengembangan
+    \item Penanganan risiko yang lebih baik dalam pengembangan sistem AI
+\end{itemize}
+
+\subsection{Gap Fokus Aspek}
+Beberapa penelitian seperti \cite{perwira_domain-specific_2025} menggunakan pendekatan ekstraksi aspek otomatis, sementara yang lain seperti \cite{maretta_aspect-based_2025} menggunakan lexicon-based approach. Namun, belum ada penelitian yang secara eksplisit berfokus pada tiga aspek kritis dalam sektor F\&B (kualitas makanan, pelayanan, dan harga) dengan pendekatan fine-tuning yang disesuaikan untuk ketiga aspek tersebut.
+Penelitian ini:
+\begin{itemize}
+    \item Mendefinisikan secara jelas tiga aspek utama yang paling relevan dalam sektor F\&B berdasarkan analisis frekuensi dan business importance
+    \item Mengembangkan strategi pelabelan data yang konsisten untuk ketiga aspek tersebut
+    \item Melakukan fine-tuning IndoBERT yang dioptimalkan untuk deteksi dan klasifikasi sentimen pada ketiga aspek spesifik ini
+    \item Menyediakan mekanisme visualisasi (word cloud) untuk setiap aspek yang membantu identifikasi pola sentimen
+\end{itemize}
+
+\subsection{Gap Sumber Data}
+Mayoritas penelitian menggunakan data dari satu platform (PlayStore, Twitter, atau Google Reviews). Penelitian ini menggunakan Google Maps Reviews yang merupakan platform ulasan paling populer dan terpercaya untuk bisnis lokal F\&B, namun dengan pendekatan scraping yang lebih terstruktur dan representatif dengan mengambil data dari lima gerai berbeda yang mencerminkan variasi jenis usaha F\&B.
+Keunggulan pendekatan data dalam penelitian ini:
+\begin{itemize}
+    \item Representasi yang lebih baik dari berbagai tipe usaha F\&B (bakso, kopi, ayam geprek, mie, dan nasi)
+    \item Data yang lebih fresh dan relevan dengan kondisi terkini
+    \item Volume data yang cukup untuk fine-tuning namun manageable untuk annotation quality
+    \item Variasi bahasa dan gaya penulisan yang lebih kaya karena berasal dari berbagai lokasi dan tipe usaha
+\end{itemize}
+
+\subsection{Gap Evaluasi Model}
+Meskipun penelitian seperti \cite{dhendra_benchmarking_2025} dan \cite{yulianti_absa_2024} melakukan benchmarking model, evaluasi yang komprehensif tentang performa model dalam kondisi real-world deployment masih terbatas. Kebanyakan evaluasi dilakukan pada test set yang sudah dibersihkan dan tidak mencerminkan kondisi data yang sebenarnya akan diterima oleh sistem.
+Penelitian ini merencanakan:
+\begin{itemize}
+    \item Evaluasi model tidak hanya pada test set, tetapi juga pada online testing dengan data real dari minimal 10 usaha F\&B
+    \item Analisis performa model terhadap berbagai jenis variasi bahasa (formal, informal, code-mixing)
+    \item Evaluasi latency dan throughput API untuk memastikan kelayakan deployment
+    \item Pengukuran robustness model terhadap noise dan typo yang umum dalam ulasan konsumen
+\end{itemize}
