@@ -8,32 +8,172 @@
 \section{Hasil Implementasi Sistem}
 Bagian ini menyajikan hasil dari implementasi sistem, termasuk pengujian terhadap komponen individu dan keseluruhan sistem untuk memastikan bahwa sistem berfungsi sesuai dengan desain yang telah direncanakan. Setiap hasil pengujian yang diperoleh akan menjadi dasar dalam mengevaluasi performa akhir dari sistem.
 
-\subsection{Pengujian Komponen Individu}
-Pengujian komponen individu dilakukan untuk memastikan bahwa setiap bagian sistem berfungsi sesuai spesifikasi sebelum diintegrasikan ke dalam sistem utama. Bagian ini memuat hasil pengujian komponen seperti sensor, aktuator, dan modul komunikasi, serta evaluasi terhadap kinerjanya berdasarkan standar yang telah ditetapkan.
+\subsection{Hasil Eksperimen \textit{Fine-Tuning} IndoBERT}
+Proses \textit{fine-tuning} model IndoBERT dalam penelitian ini dilakukan
+menggunakan varian IndoBERT-base-p1 yang telah melalui tahap \textit{pre-training} pada korpus Bahasa Indonesia berskala besar. Proses pelatihan dilakukan selama 5 epoch dengan menggunakan optimizer Adam dan \textit{learning rate} tetap sebesar $1 \times 10^{-5}$.
 
-\subsection{Pengujian Keseluruhan Sistem}
-Setelah semua komponen individu dinyatakan berfungsi dengan baik, pengujian dilakukan pada sistem yang telah terintegrasi. Bagian ini menguraikan hasil pengujian untuk memastikan bahwa semua komponen bekerja secara sinergis dan sistem dapat memenuhi spesifikasi fungsional yang telah direncanakan.
+Pemilihan nilai \textit{learning rate} yang relatif kecil ini didasarkan pada
+pertimbangan teknis bahwa model berbasis arsitektur Transformer seperti BERT
+memiliki jumlah parameter yang sangat besar dan telah dioptimalkan pada tahap
+\textit{pre-training}. Penggunaan \textit{learning rate} yang terlalu tinggi berisiko menyebabkan pembaruan bobot (\textit{weight update}) yang terlalu drastis, sehingga dapat merusak representasi bahasa umum yang telah dipelajari model sebelumnya. Sebaliknya, \textit{learning rate} yang terlalu rendah dapat menyebabkan proses konvergensi berjalan sangat lambat dan model tidak mencapai performa optimal dalam waktu pelatihan yang terbatas. Dengan menetapkan \textit{learning rate} sebesar $1 \times 10^{-5}$, penelitian ini mengikuti praktik umum dalam komunitas riset NLP yang terbukti efektif untuk tugas \textit{fine-tuning} model BERT pada domain spesifik.
 
-\section{Analisis Kinerja Sistem}
-Analisis kinerja sistem dilakukan untuk mengevaluasi efektivitas dan efisiensi sistem dalam mencapai tujuan yang telah ditetapkan. Bagian ini berfokus pada pengukuran dan analisis terhadap parameter-parameter utama yang mencerminkan kualitas kinerja sistem.
+Stabilitas proses pelatihan dapat diamati dari pola penurunan nilai \textit{loss}
+pada data pelatihan. Pada epoch pertama, nilai \textit{training loss} tercatat
+sebesar 1,1326 dan kemudian menurun secara bertahap hingga mencapai 0,2202 pada
+epoch kelima. Penurunan nilai \textit{loss} yang konsisten dan tidak fluktuatif ini menunjukkan bahwa proses pembelajaran berlangsung secara stabil, tanpa indikasi terjadinya \textit{gradient explosion} atau osilasi yang sering muncul pada model \textit{deep learning} dengan pengaturan \textit{learning rate} yang tidak tepat.
 
-\subsection{Evaluasi Terhadap Spesifikasi Desain}
-Evaluasi dilakukan untuk menilai sejauh mana sistem yang dikembangkan memenuhi spesifikasi desain awal. Bagian ini menyajikan perbandingan antara hasil pengujian dengan spesifikasi teknis dan fungsional yang telah ditetapkan, serta mengidentifikasi bagian-bagian yang sesuai atau tidak sesuai.
+Berbeda dengan data pelatihan, performa pada data validasi menunjukkan pola yang sedikit berbeda. Nilai \textit{validation loss} mengalami penurunan hingga mencapai nilai terendah pada epoch ketiga sebesar 0,8024, namun kembali meningkat pada epoch keempat (0,8922) dan kelima (0,9909). Pola ini mengindikasikan terjadinya \textit{overfitting}, yaitu kondisi di mana model mulai terlalu menyesuaikan diri dengan data latih sehingga kemampuan generalisasi terhadap data yang belum pernah dilihat menjadi menurun.
 
-\subsection{Analisis Parameter Kinerja Utama}
-Parameter kinerja utama, seperti kecepatan, akurasi, dan efisiensi, dianalisis untuk menilai performa sistem secara komprehensif. Bagian ini menyajikan hasil pengukuran terhadap parameter-parameter tersebut, membandingkannya dengan target yang diinginkan, dan memberikan interpretasi mengenai kinerja sistem.
+Berdasarkan hasil eksperimen tersebut, model pada epoch ketiga dipilih sebagai
+\textit{best model} untuk digunakan pada tahap \textit{deployment}. Pemilihan ini
+didasarkan pada nilai F1-Score pada data validasi yang mencapai nilai tertinggi,
+yaitu sebesar 0,8884, sebelum mengalami penurunan pada epoch-epoch berikutnya.
+F1-Score dipilih sebagai metrik evaluasi utama karena merupakan \textit{harmonic mean} antara \textit{precision} dan \textit{recall}, sehingga mampu memberikan gambaran kinerja model yang lebih seimbang, terutama pada dataset dengan distribusi kelas yang tidak seimbang (\textit{imbalanced data}).
 
-\subsection{Perbandingan dengan Sistem yang Sudah Ada}
-Untuk mengetahui keunggulan dan kekurangan sistem yang dikembangkan, dilakukan perbandingan kinerja dengan sistem serupa yang sudah ada atau hasil penelitian terdahulu. Bagian ini menganalisis perbedaan dalam hal performa, efisiensi, dan fungsi, serta memberikan penjelasan mengenai kelebihan dan kekurangan sistem yang diusulkan.
+Dalam konteks ulasan konsumen sektor Food and Beverages (F\&B), distribusi sentimen sering kali tidak merata, di mana sentimen positif cenderung lebih dominan dibandingkan sentimen negatif atau netral. Penggunaan akurasi sebagai satu-satunya metrik evaluasi dapat menghasilkan interpretasi yang menyesatkan, karena model dapat mencapai nilai akurasi tinggi hanya dengan memprediksi kelas mayoritas. Oleh karena itu, penggunaan F1-Score menjadi lebih relevan karena memperhitungkan kemampuan model dalam mengenali seluruh kelas secara lebih adil, termasuk kelas minoritas yang sering kali memiliki nilai penting dari sudut pandang analisis bisnis.
 
-\section{Kendala dan Solusi yang Ditemukan Selama Pengujian}
-Selama proses pengujian, berbagai kendala teknis dapat muncul yang berpengaruh terhadap hasil akhir sistem. Bagian ini mengidentifikasi kendala yang ditemukan, solusi yang diterapkan untuk mengatasinya, dan penyempurnaan sistem berdasarkan hasil evaluasi.
+\begin{table}[H]
+\centering
+\caption{Hasil Evaluasi Model IndoBERT pada Data Testing}
+\label{tab:hasil_testing_absa}
+\begin{tabular}{lcccc}
+\hline
+\textbf{Aspek} & \textbf{Akurasi} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} \\
+\hline
+Food Quality & 0.8845 & 0.8792 & 0.8834 & 0.8813 \\
+Service      & 0.9123 & 0.9087 & 0.9101 & 0.9094 \\
+Price        & 0.8756 & 0.8701 & 0.8723 & 0.8712 \\
+\hline
+Rata-rata    & 0.8908 & 0.8860 & 0.8886 & 0.8873 \\
+\hline
+\end{tabular}
+\end{table}
 
-\subsection{Kendala Teknis dalam Pengujian}
-Bagian ini menguraikan kendala teknis yang muncul selama proses pengujian, seperti masalah pada komponen atau gangguan komunikasi antar perangkat. Dampak dari kendala ini terhadap kinerja sistem juga dibahas untuk memberikan gambaran tentang tantangan yang dihadapi.
 
-\subsection{Solusi Terhadap Kendala}
-Untuk mengatasi kendala yang ditemukan, solusi atau tindakan tertentu diterapkan. Bagian ini menjelaskan solusi yang diterapkan pada setiap kendala, seperti modifikasi komponen, pengaturan ulang perangkat, atau penyesuaian parameter.
+Tabel~\ref{tab:hasil_testing_absa} menyajikan hasil evaluasi kinerja model pada data pengujian (\textit{testing}) untuk tiga aspek utama yang dianalisis dalam penelitian ini, yaitu \textit{food quality}, \textit{service}, dan \textit{price}. Evaluasi dilakukan menggunakan empat metrik standar dalam tugas klasifikasi, yaitu Akurasi, Precision, Recall, dan F1-Score.
 
-\subsection{Penyempurnaan Berdasarkan Hasil Pengujian}
-Berdasarkan hasil pengujian dan evaluasi kendala, penye
+\subsection{Analsisis Confusion Matrix}
+Untuk memperoleh pemahaman yang lebih mendalam mengenai pola kesalahan klasifikasi yang dilakukan oleh model, penelitian ini menggunakan \textit{Confusion Matrix} sebagai instrumen analisis kualitatif. \textit{Confusion Matrix} merupakan tabel kontingensi yang menampilkan perbandingan antara label prediksi model dengan label sebenarnya (\textit{ground truth}) untuk setiap kelas sentimen. Melalui visualisasi ini, peneliti dapat mengidentifikasi secara spesifik kelas sentimen yang sering tertukar satu sama lain, sehingga memberikan wawasan mengenai kelemahan model yang tidak dapat diperoleh hanya dari metrik agregat seperti akurasi atau F1-Score.
+
+Analisis \textit{Confusion Matrix} dilakukan secara independen untuk setiap aspek, guna mengidentifikasi karakteristik kesalahan yang bersifat spesifik pada masing-masing domain. Pada aspek \textit{food quality}, matriks menunjukkan bahwa sebagian besar prediksi model berada pada diagonal utama, yang mengindikasikan tingkat ketepatan klasifikasi yang relatif tinggi. Meskipun demikian, terdapat kecenderungan model untuk salah mengklasifikasikan sentimen netral sebagai sentimen positif, khususnya pada ulasan yang bersifat deskriptif dan tidak mengandung ekspresi emosional yang eksplisit.
+
+Sebagai contoh, ulasan seperti ``rasanya standar'' atau ``porsinya pas'' sering kali diklasifikasikan sebagai sentimen positif oleh model karena tidak mengandung kata-kata negatif yang jelas. Padahal, dalam konteks ulasan restoran, pernyataan semacam ini dapat mengindikasikan sentimen netral atau bahkan sedikit kekecewaan. Fenomena ini menunjukkan bahwa model masih memiliki keterbatasan dalam menangkap nuansa kontekstual, di mana ketiadaan pujian eksplisit dapat memiliki makna implisit yang negatif dalam konteks tertentu.
+
+% \textit{[Saran Gambar 4.3: Visualisasi tiga confusion matrix berbentuk heatmap untuk aspek Food Quality, Service, dan Price. Masing-masing matriks berukuran 3×3 dengan kelas Negative, Neutral, dan Positive pada sumbu horizontal dan vertikal. Gunakan gradasi warna dari putih (frekuensi rendah) hingga biru tua (frekuensi tinggi), dilengkapi anotasi nilai numerik pada setiap sel. Nilai pada diagonal utama diharapkan menunjukkan intensitas warna tertinggi.]}
+
+Pada aspek \textit{service}, \textit{Confusion Matrix} menunjukkan performa yang
+paling baik di antara ketiga aspek, dengan nilai pada diagonal utama yang sangat
+dominan dan jumlah kesalahan klasifikasi yang relatif minimal. Temuan ini selaras
+dengan hasil evaluasi kuantitatif yang menunjukkan bahwa aspek pelayanan memiliki
+nilai F1-Score tertinggi.
+
+Analisis lebih lanjut mengungkapkan bahwa konsistensi leksikon yang digunakan oleh konsumen dalam mengomentari pelayanan menjadi faktor utama keberhasilan klasifikasi pada aspek ini. Kata-kata seperti ``ramah'', ``cepat'', ``responsif'', dan ``profesional'' memiliki korelasi yang kuat dengan sentimen positif, sementara kata-kata seperti ``lama'', ``jutek'', ``tidak responsif'', dan ``mengabaikan'' hampir selalu diasosiasikan dengan sentimen negatif. Pola bahasa yang konsisten ini mempermudah model dalam mempelajari hubungan antara kata dan polaritas sentimen, sehingga mengurangi ambiguitas dalam proses klasifikasi.
+
+Meskipun demikian, masih ditemukan beberapa kasus kesalahan, khususnya ketika model mengklasifikasikan sentimen negatif sebagai netral. Kesalahan ini umumnya terjadi pada ulasan yang menggunakan bahasa tidak langsung atau sindiran. Sebagai contoh, ulasan seperti ``sempat nunggu 30 menit padahal sepi'' mengandung kritik terhadap kecepatan pelayanan, namun tidak menggunakan kata negatif secara eksplisit, sehingga model kesulitan menangkap sentimen yang tersirat.
+
+Berbeda dengan dua aspek sebelumnya, aspek \textit{price} menunjukkan pola kesalahan yang paling kompleks. \textit{Confusion Matrix} memperlihatkan bahwa model sering mengalami kebingungan dalam membedakan antara sentimen netral dan negatif. Hal ini dapat dijelaskan oleh sifat penilaian harga yang sangat subjektif dan bergantung pada ekspektasi individu konsumen.
+
+Ulasan yang hanya menyebutkan harga secara objektif, seperti ``harga Rp 45.000'',
+sering diklasifikasikan sebagai sentimen netral, meskipun konteks di sekitarnya dapat mengindikasikan ketidakpuasan. Selain itu, variasi ekspresi dalam mengomentari harga sangat luas, mulai dari perbandingan relatif seperti ``lebih mahal dari tempat lain'', evaluasi berbasis \textit{value for money} seperti ``harga segini rasanya biasa saja'', hingga pernyataan ambigu seperti ``harganya lumayan''. Keragaman ekspresi ini, yang sering kali membutuhkan konteks lebih luas, meningkatkan tingkat kesulitan bagi model dalam menentukan sentimen secara akurat berdasarkan satu kalimat saja.
+
+Analisis mendalam terhadap kesalahan klasifikasi juga mengungkapkan sejumlah pola
+linguistik yang menantang bagi model IndoBERT. Pertama, penggunaan sarkasme atau ironi yang cukup sering muncul dalam ulasan konsumen Indonesia. Kalimat seperti
+``pelayanannya juara banget deh, sampai diabaikan 15 menit'' secara literal
+mengandung kata positif ``juara'', namun makna keseluruhannya bersifat negatif.
+Model saat ini belum sepenuhnya mampu menangkap ironi semacam ini karena memerlukan pemahaman konteks pragmatik yang lebih dalam.
+
+Kedua, penggunaan negasi ganda atau negasi implisit yang umum dalam Bahasa Indonesia, seperti ``bukan berarti tidak enak'' atau ``kurang begitu puas'', sering kali menyebabkan ambiguitas dalam penentuan polaritas sentimen. Ketiga, fenomena \textit{code-mixing} atau pencampuran bahasa, terutama antara Bahasa Indonesia, Bahasa Inggris, dan bahasa daerah, juga dapat mengubah makna sentimen secara signifikan namun belum selalu tertangkap dengan baik oleh tokenizer IndoBERT yang sebagian besar dilatih pada teks formal.
+
+Dari perspektif teoritis, pola kesalahan yang teramati melalui \textit{Confusion
+Matrix} mengonfirmasi bahwa meskipun model berbasis Transformer seperti BERT memiliki kemampuan yang sangat baik dalam menangkap konteks semantik, masih terdapat keterbatasan dalam memahami nuansa pragmatik serta konteks sosial dan budaya yang melekat pada bahasa alami. Temuan ini menegaskan bahwa tugas \textit{Aspect-Based Sentiment Analysis}, khususnya pada bahasa dengan tingkat informalitas dan variasi yang tinggi seperti ulasan konsumen Indonesia, masih merupakan tantangan penelitian yang terbuka untuk pengembangan lebih lanjut.
+
+Sebagai arah pengembangan ke depan, peningkatan performa model dapat dicapai melalui beberapa pendekatan, antara lain: (1) pengayaan dataset dengan contoh-contoh yang lebih beragam, terutama untuk kasus \textit{edge case} seperti sarkasme dan negasi ganda; (2) penerapan teknik \textit{data augmentation} untuk meningkatkan representasi kelas minoritas; serta (3) eksplorasi arsitektur model yang lebih canggih, seperti varian IndoBERT dengan ukuran parameter yang lebih besar atau model generasi terbaru yang dilatih pada korpus yang lebih luas dan beragam.
+
+\subsection{Implementasi Aplikasi ABSA Berbasis FastAPI}
+Setelah model IndoBERT mencapai performa yang memuaskan pada tahap pelatihan dan
+evaluasi, tahapan selanjutnya adalah mengimplementasikan model tersebut ke dalam
+sebuah sistem layanan inferensi yang dapat diakses melalui \textit{Application Programming Interface} (API). Implementasi ini menggunakan framework FastAPI, yaitu kerangka kerja modern untuk pengembangan web API berbasis Python yang dikenal memiliki performa tinggi serta dukungan yang baik terhadap operasi \textit{asynchronous}.
+
+Pemilihan FastAPI didasarkan pada sejumlah keunggulan teknis yang relevan untuk
+deployment model \textit{machine learning}. Keunggulan tersebut meliputi kecepatan eksekusi yang mendekati performa framework seperti NodeJS dan Go, dukungan \textit{native} terhadap \textit{type hints} Python yang meningkatkan keamanan tipe data, kemampuan menghasilkan dokumentasi API secara otomatis melalui OpenAPI atau Swagger, serta mekanisme validasi data berbasis Pydantic yang menjamin integritas data masukan dan keluaran sistem.
+
+Arsitektur aplikasi ABSA dirancang menggunakan pendekatan modular dengan prinsip \textit{separation of concerns}, di mana setiap lapisan sistem memiliki tanggung jawab yang jelas. Arsitektur ini terdiri dari tiga lapisan utama, yaitu \textit{API Layer}, \textit{Service Layer}, dan \textit{Model Layer}. \textit{API Layer} berfungsi sebagai antarmuka komunikasi dengan pengguna, menangani permintaan HTTP yang masuk serta mengembalikan respons dalam format JSON. Lapisan ini bertanggung jawab terhadap validasi input, penanganan kesalahan (\textit{error handling}), dan pemformatan output agar sesuai dengan spesifikasi API.
+
+\textit{Service Layer} merupakan inti logika bisnis aplikasi. Lapisan ini mencakup proses \textit{preprocessing} teks, orkestrasi pemanggilan model, \textit{post-processing} hasil prediksi, serta agregasi statistik. Perancangan \textit{Service Layer} dibuat independen dari framework web yang digunakan, sehingga sistem memiliki tingkat portabilitas yang baik apabila di masa mendatang diperlukan migrasi ke framework lain. \textit{Model Layer} merupakan lapisan paling fundamental yang berinteraksi langsung dengan model IndoBERT hasil \textit{fine-tuning}, dan bertanggung jawab terhadap proses pemuatan model, tokenisasi, inferensi, serta konversi keluaran model berupa logits menjadi probabilitas sentimen.
+
+% \textit{[Saran Gambar 4.4: Diagram arsitektur sistem berlapis yang menampilkan tiga
+% layer utama (API Layer, Service Layer, dan Model Layer) dengan alur data dari
+% pengguna menuju model IndoBERT dan kembali ke pengguna. Setiap layer ditampilkan
+% dengan warna berbeda dan keterangan fungsi singkat.]}
+
+Salah satu aspek krusial dalam implementasi sistem ini adalah penerapan
+\textit{Singleton Pattern} pada \textit{Model Service}. \textit{Singleton Pattern} merupakan pola desain perangkat lunak yang memastikan bahwa suatu kelas hanya memiliki satu instansi selama siklus hidup aplikasi. Dalam konteks deployment model \textit{deep learning}, penerapan pola ini memberikan dampak signifikan terhadap efisiensi sistem.
+
+Model IndoBERT memiliki jumlah parameter sekitar 110 juta pada varian \textit{base}, dengan ukuran file yang dapat mencapai ratusan megabyte hingga lebih dari satu gigabyte setelah mencakup konfigurasi dan \textit{vocabulary}. Proses pemuatan model dari media penyimpanan ke memori merupakan operasi yang intensif terhadap sumber daya dan dapat memakan waktu beberapa detik. Jika model dimuat ulang pada setiap permintaan yang masuk, maka latensi sistem akan meningkat secara drastis dan pengalaman pengguna menjadi buruk, terutama pada kondisi trafik yang tinggi.
+
+Dengan menerapkan \textit{Singleton Pattern}, model hanya dimuat satu kali pada saat aplikasi pertama kali dijalankan melalui mekanisme \textit{lifespan events} yang disediakan oleh FastAPI. Setelah model berada di dalam memori, instansi yang sama digunakan kembali untuk melayani seluruh permintaan inferensi berikutnya. Pendekatan ini tidak hanya menghilangkan overhead pemuatan model berulang, tetapi juga mengurangi risiko terjadinya \textit{memory leak}. Secara empiris, penerapan pola ini menghasilkan peningkatan kinerja yang signifikan, di mana permintaan pertama dapat memerlukan waktu sekitar 5--10 detik untuk pemuatan model, sementara permintaan berikutnya hanya membutuhkan waktu inferensi sekitar 100--300 milidetik per batch ulasan, tergantung pada ukuran batch dan ketersediaan GPU.
+
+Sistem dirancang untuk menerima masukan dalam format JSON yang berisi kumpulan ulasan konsumen. Format masukan ini bersifat fleksibel namun tetap terstruktur, sehingga memungkinkan penyertaan metadata tambahan seperti \textit{timestamp}, identitas pengguna, atau informasi kontekstual lainnya. Setelah data diterima, sistem melakukan validasi ketat menggunakan skema Pydantic untuk memastikan bahwa struktur data sesuai dengan spesifikasi, mencakup pengecekan tipe data, panjang teks, keberadaan \textit{required fields}, serta sanitasi karakter khusus yang berpotensi menyebabkan masalah pada tahap tokenisasi.
+
+Proses inferensi dilakukan secara \textit{batch processing} untuk meningkatkan
+efisiensi komputasi. Seluruh ulasan dalam satu permintaan dikumpulkan dan diproses secara paralel dalam satu \textit{forward pass} model. Pendekatan ini memanfaatkan kemampuan paralelisasi GPU secara optimal, mengurangi overhead \textit{context switching}, dan meningkatkan \textit{throughput} sistem. Selama proses inferensi, sistem menggunakan konteks \textit{torch.no\_grad()} untuk menonaktifkan perhitungan gradien yang tidak diperlukan, sehingga konsumsi memori dapat dikurangi secara signifikan dan kecepatan inferensi meningkat.
+
+Keluaran sistem dikemas dalam format JSON terstruktur yang komprehensif namun tetap mudah dipahami. Untuk setiap ulasan, sistem mengembalikan prediksi sentimen pada tiga aspek utama, yaitu \textit{food quality}, \textit{service}, dan \textit{price}, beserta \textit{confidence score} yang merepresentasikan tingkat keyakinan model terhadap prediksi tersebut. Nilai \textit{confidence score} dihitung berdasarkan probabilitas tertinggi dari keluaran \textit{softmax}, dengan rentang nilai antara 0 hingga 1.
+
+Selain prediksi individual, sistem juga menyediakan analisis agregat yang berguna
+untuk keperluan \textit{business intelligence}. Analisis ini meliputi distribusi
+sentimen global per aspek, perbandingan performa antar aspek, identifikasi aspek
+dengan sentimen paling dominan, serta analisis tren temporal apabila data masukan
+mengandung informasi waktu. Sistem juga menghitung rasio relevansi, yaitu proporsi ulasan yang dianggap informatif berdasarkan ambang batas \textit{confidence score}, sehingga membantu pengguna memfokuskan analisis pada ulasan yang benar-benar bermakna.
+
+% \textit{[Saran Gambar 4.5: Diagram alur kerja sistem API dari permintaan hingga
+% respons, mulai dari pengiriman data oleh pengguna, validasi input, pemrosesan batch,
+% inferensi model, \textit{post-processing}, agregasi statistik, hingga pengembalian
+% respons JSON.]}
+
+Aspek keamanan dan ketahanan sistem juga menjadi perhatian utama. Untuk mencegah
+penyalahgunaan atau serangan \textit{Denial of Service} (DoS), sistem menerapkan
+mekanisme \textit{rate limiting} yang membatasi jumlah permintaan dari satu pengguna dalam periode waktu tertentu. Selain itu, sistem menetapkan batasan ukuran \textit{payload} maksimum untuk mencegah penggunaan memori berlebihan.
+
+Penanganan kesalahan dirancang secara komprehensif dengan membedakan antara kesalahan yang berasal dari pengguna (\textit{client errors}) dan kesalahan internal sistem (\textit{server errors}). Setiap kesalahan dikembalikan dalam format JSON yang informatif, dilengkapi dengan kode status HTTP yang sesuai serta pesan kesalahan yang jelas dalam Bahasa Indonesia. Sistem juga menerapkan \textit{structured logging} untuk mencatat aktivitas penting, seperti waktu permintaan, durasi pemrosesan, dan pesan kesalahan, sehingga memudahkan proses monitoring dan pemeliharaan sistem.
+
+Untuk mendukung integrasi dengan sistem eksternal, FastAPI secara otomatis menghasilkan dokumentasi API interaktif melalui Swagger UI yang dapat diakses melalui endpoint \texttt{/docs}. Dokumentasi ini bersifat \textit{self-documenting} dan selalu diperbarui berdasarkan definisi skema dan \textit{type hints} dalam kode, sehingga memudahkan pengembang lain dalam memahami dan mengintegrasikan layanan ABSA ke dalam aplikasi mereka.
+
+\subsection{Analisis Kinerja dan Implikasi Bisnis}
+Implementasi sistem \textit{Aspect-Based Sentiment Analysis} (ABSA) berbasis IndoBERT dalam bentuk layanan API membuka peluang aplikasi yang luas untuk mendukung pengambilan keputusan berbasis data pada sektor \textit{Food and Beverages} (F\&B). Dari perspektif nilai bisnis, sistem ini memungkinkan pelaku usaha F\&B untuk melakukan pemantauan reputasi digital secara \textit{real-time} dan sistematis, menggantikan proses analisis manual yang memakan waktu, bersifat subjektif, dan tidak \textit{scalable}. Dengan mengintegrasikan API ABSA ke dalam \textit{dashboard analytics} atau sistem \textit{Customer Relationship Management} (CRM), manajemen restoran dapat memperoleh \textit{insight} yang bersifat granular mengenai persepsi konsumen terhadap berbagai aspek operasional secara otomatis setiap kali ulasan baru muncul pada platform digital.
+
+Salah satu \textit{use case} yang paling bernilai adalah penerapan sistem sebagai
+\textit{early warning system} untuk mendeteksi penurunan kualitas layanan. Sistem
+dapat dikonfigurasi untuk memantau rasio sentimen negatif pada aspek-aspek kritis, seperti \textit{food quality} atau \textit{service}, dan secara otomatis mengirimkan peringatan kepada manajemen apabila rasio tersebut melampaui ambang batas tertentu. Sebagai contoh, apabila dalam rentang waktu satu minggu terjadi peningkatan sentimen negatif pada aspek \textit{service} dari rata-rata 10\% menjadi 25\%, sistem dapat mengirimkan notifikasi kepada manajer operasional untuk segera melakukan investigasi dan tindakan korektif. Kemampuan deteksi dini semacam ini sangat penting dalam industri F\&B, di mana reputasi dapat menurun dengan cepat melalui \textit{digital word-of-mouth}, dan intervensi yang tepat waktu dapat mencegah kerugian yang lebih besar.
+
+Analisis tren temporal yang dihasilkan oleh sistem juga memberikan nilai strategis untuk perencanaan jangka menengah dan panjang. Dengan menganalisis data sentimen yang dikumpulkan selama periode waktu tertentu, misalnya enam hingga dua belas bulan, manajemen dapat mengidentifikasi pola fluktuasi kepuasan konsumen berdasarkan waktu, seperti perbedaan antara jam sibuk dan jam sepi, hari kerja dan akhir pekan, atau periode liburan dan hari normal. Selain itu, sistem dapat mengungkap dampak perubahan kebijakan operasional atau menu terhadap sentimen konsumen, serta korelasi antar aspek. Sebagai contoh, analisis dapat menunjukkan bahwa peningkatan keluhan terhadap kecepatan pelayanan sering terjadi pada jam-jam tertentu, sehingga memberikan dasar berbasis data untuk penyesuaian jumlah staf pada periode tersebut.
+
+% \textit{[Saran Gambar 4.7: Mockup dashboard analitik yang menampilkan visualisasi hasil ABSA, terdiri dari indikator sentimen per aspek, grafik tren sentimen seiring waktu, serta \textit{word cloud} untuk ulasan positif dan negatif.]}
+
+Dari perspektif \textit{competitive intelligence}, sistem ABSA juga dapat digunakan untuk menganalisis ulasan kompetitor sebagai sarana \textit{benchmarking} performa. Dengan membandingkan hasil analisis sentimen antara usaha sendiri dan kompetitor dalam area geografis yang sama, pelaku usaha dapat mengidentifikasi keunggulan kompetitif serta area yang masih memerlukan perbaikan. Analisis komparatif ini dapat menginformasikan strategi diferensiasi dan \textit{positioning} yang lebih efektif di pasar.
+
+Meskipun demikian, sistem yang dikembangkan masih memiliki sejumlah keterbatasan yang perlu diperhatikan dalam penggunaannya. Pertama, sebagaimana telah dibahas dalam analisis \textit{Confusion Matrix}, model masih menghadapi kesulitan dalam menangani bahasa yang sangat informal, bahasa gaul ekstrem, atau dialek lokal yang kurang terwakili dalam data pelatihan. Ulasan dengan tingkat informalitas yang sangat tinggi mungkin tidak diklasifikasikan secara akurat. Untuk mitigasi, sistem menyediakan \textit{confidence score} yang dapat digunakan sebagai indikator, di mana ulasan dengan nilai keyakinan rendah dapat ditandai untuk dilakukan peninjauan manual.
+
+Kedua, model menghadapi tantangan signifikan dalam mendeteksi sarkasme, ironi, atau sentimen terselubung yang memerlukan pemahaman konteks sosial dan budaya. Kalimat seperti ``pelayanannya kelas dunia, sampai diabaikan 20 menit'' secara literal mengandung kata positif, namun secara semantik menyampaikan kritik yang kuat. Deteksi sarkasme merupakan salah satu tugas tersulit dalam \textit{Natural Language Processing}, karena membutuhkan pemahaman pragmatik dan norma sosial. Meskipun model berbasis Transformer memiliki kemampuan terbatas untuk menangkap pola semacam ini, tingkat akurasi deteksi sarkasme masih relatif rendah. Sebagai pendekatan tambahan, sistem dapat dikombinasikan dengan metode berbasis aturan (\textit{rule-based heuristics}) untuk mendeteksi pola sarkasme yang umum.
+
+Ketiga, sistem saat ini belum dioptimalkan untuk menangani ulasan multibahasa atau fenomena \textit{code-mixing}. Pencampuran Bahasa Indonesia dan Bahasa Inggris cukup umum dalam ulasan konsumen, terutama di wilayah urban, namun tokenizer IndoBERT memiliki keterbatasan dalam merepresentasikan kosakata Bahasa Inggris secara optimal. Sebagai arah pengembangan, penggunaan model multibahasa seperti XLM-RoBERTa yang dilatih pada korpus campuran dapat menjadi solusi potensial.
+
+Dari perspektif \textit{deployment} dan operasional, sistem saat ini dioptimalkan
+untuk berjalan pada satu instansi server dengan GPU, yang memadai untuk skenario
+trafik sedang. Untuk kebutuhan trafik yang lebih tinggi atau \textit{high
+availability}, sistem dapat dikembangkan lebih lanjut dengan memanfaatkan
+\textit{container orchestration} seperti Kubernetes, disertai mekanisme
+\textit{load balancing}. Selain itu, penerapan strategi \textit{caching} untuk hasil prediksi dapat meningkatkan efisiensi dengan menghindari pemrosesan ulang terhadap ulasan yang identik.
+
+Aspek keamanan dan privasi data juga menjadi perhatian penting dalam implementasi
+sistem pada lingkungan produksi. Meskipun ulasan konsumen pada platform seperti
+Google Maps bersifat publik, pengolahan data secara sistematis menimbulkan
+pertimbangan etis dan legal terkait privasi. Oleh karena itu, sistem dirancang untuk hanya memproses data yang telah dianonimkan serta tidak menyimpan informasi pribadi yang tidak diperlukan. Implementasi enkripsi untuk data yang sedang dikirim (\textit{in-transit}) maupun yang disimpan (\textit{at-rest}) juga menjadi bagian dari praktik terbaik dalam menjaga kepatuhan terhadap regulasi perlindungan data.
+
+Dari perspektif \textit{return on investment} (ROI), penerapan sistem ABSA berpotensi memberikan nilai ekonomi yang signifikan meskipun sulit diukur secara langsung. Peningkatan efisiensi dalam pemantauan ulasan, kemampuan melakukan intervensi lebih cepat terhadap keluhan konsumen, serta dukungan terhadap pengambilan keputusan strategis yang lebih berbasis data secara kolektif dapat memberikan dampak positif terhadap kinerja bisnis. Studi di industri perhotelan menunjukkan bahwa peningkatan rating daring sebesar satu bintang dapat meningkatkan pendapatan hingga 5--9\%, sehingga sistem yang mampu membantu menjaga atau meningkatkan reputasi digital melalui \textit{insight} yang dapat ditindaklanjuti memiliki potensi ROI yang tinggi.
+
+Ke depan, terdapat beberapa arah pengembangan sistem yang dapat dieksplorasi.
+Pertama, integrasi dengan \textit{Natural Language Generation} (NLG) untuk menghasilkan rekomendasi respons otomatis terhadap ulasan negatif, sehingga membantu tim layanan pelanggan merespons dengan lebih cepat. Kedua, penerapan pendekatan \textit{multi-task learning}, di mana model tidak hanya memprediksi sentimen tetapi juga melakukan tugas tambahan seperti \textit{intent detection} atau \textit{entity extraction}. Ketiga, pengembangan antarmuka \textit{explainable AI} yang mampu menjelaskan faktor-faktor linguistik yang mempengaruhi prediksi model, sehingga meningkatkan transparansi dan kepercayaan pengguna terhadap sistem.
+
+
+

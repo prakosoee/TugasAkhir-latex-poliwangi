@@ -3,87 +3,321 @@
 % Silahkan edit sesuai kebutuhan, baik menambah atau mengurangi \section, \subsection
 %==================================================================
 
-\chapter[KONSEP RANCANGAN ALAT DAN PENGUJIAN]{\\ KONSEP RANCANGAN ALAT DAN PENGUJIAN}
+\chapter[METODOLOGI PENELITIAN]{\\ METODOLOGI PENELITIAN}
 
-\section{Metode Pengerjaan Project Berbasis Engineering Design Process}
-Bagian ini menjelaskan metode pengerjaan proyek yang mengadopsi pendekatan Engineering Design Process. Pendekatan ini digunakan untuk memastikan perancangan dan pengembangan proyek dilakukan secara sistematis, mulai dari identifikasi masalah hingga evaluasi akhir. Langkah-langkah dalam metode ini membantu dalam mencapai solusi yang optimal dan terukur.
+\section{Waktu dan Jadwal Penelitian}
+\subsection{Waktu Pelaksanaan Penelitian}
+Penelitian ini dilaksanakan dalam kurun waktu 4 bulan, terhitung mulai dari tahapan persiapan pada bulan November 2025 hingga tahap penyusunan laporan akhir dan publikasi pada bulan Februari 2026. Seluruh rangkaian kegiatan dilakukan secara terintegrasi untuk memastikan setiap tahapan, mulai dari pengumpulan data ulasan F\&B menggunakan Selenium hingga tahap deployment model ke FastAPI, dapat diselesaikan sesuai dengan target waktu yang telah ditentukan. Fokus utama pembagian waktu ini adalah memberikan porsi yang cukup pada tahap fine-tuning model IndoBERT dan validasi sistem guna menjamin akurasi analisis sentimen berbasis aspek yang dihasilkan.
+\subsection{Jadwal Penelitian}
+\begin{table}[h]
+  \centering
+  \caption{Jadwal Penelitian}
+  \label{tab:jadwal_penelitian}
+  \renewcommand{\arraystretch}{1.3}
+  \setlength{\tabcolsep}{12pt}
+  \begin{tabular}{|c|p{4.5cm}|c|c|c|c|c|}
+    \hline
+    \multirow{2}{*}{\textbf{No}} & \multirow{2}{*}{\textbf{Nama Kegiatan}}    & \multicolumn{4}{c|}{\textbf{Bulan}}                                                                                     \\
+    \cline{3-6}
+                                 &                                            & \textbf{Nov}       & \textbf{Des}       & \textbf{Jan}       & \textbf{Feb}       \\
+    \hline
+    1.                           & Analisis Kebutuhan Sistem                  & \cellcolor{yellow} &                    &                    &                    \\
+    \hline
+    2.                           & Desain Arsitektur                          & \cellcolor{yellow} &                    &                    &                    \\
+    \hline
+    3.                           & Data Collection                            & \cellcolor{yellow} &                    &                    &                    \\
+    \hline
+    4.                           & Data Preprocessing                         & \cellcolor{yellow} & \cellcolor{yellow} &                    &                    \\
+    \hline
+    5.                           & Fine-Tuning Model                          &                   & \cellcolor{yellow}  &                    &                    \\
+    \hline
+    6.                           & Model Evaluation                           &                   & \cellcolor{yellow}  &                    &                    \\
+    \hline
+    7.                           & Implementasi Service ABSA                  &                   &                     & \cellcolor{yellow}  &  \\
+    \hline
+    8.                          & Deployment                                 &                   &                      & \cellcolor{yellow}   &  \\
+    \hline
+    9.                          & Black Box Testing (Postman)                &                   &                      & \cellcolor{yellow}   &  \\
+    \hline
+    10.                          & Bug Fix                                    &                   &                     & \cellcolor{yellow}   & \cellcolor{yellow} \\
+    \hline
+    11.                          & Dokumentasi dan penyusunan laporan         &                   & \cellcolor{yellow}  & \cellcolor{yellow}   & \cellcolor{yellow} \\
+    \hline
+  \end{tabular}
+\end{table}
 
-\subsection{Identifikasi Masalah}
-Tahap identifikasi masalah bertujuan untuk menguraikan permasalahan utama yang dihadapi dan memerlukan solusi. Pada tahap ini, dilakukan analisis untuk memahami aspek-aspek penting dari masalah dan menentukan faktor-faktor yang perlu diatasi melalui proyek ini.
+Jadwal penelitian ini disusun secara terstruktur untuk memastikan setiap tahapan pengembangan sistem analisis sentimen berbasis aspek berjalan sesuai dengan garis waktu yang telah ditetapkan. Tahap awal dimulai dengan analisis kebutuhan sistem untuk memetakan spesifikasi teknis yang diperlukan, yang kemudian dilanjutkan dengan penyusunan desain arsitektur sebagai cetak biru integrasi antara model IndoBERT dan layanan API. Memasuki tahap teknis, dilakukan data collection menggunakan Selenium untuk mengambil ulasan dari Google Maps, diikuti dengan data preprocessing yang intensif guna membersihkan teks ulasan agar siap diproses.
 
-\subsection{Definisi Kebutuhan}
-Berdasarkan masalah yang telah diidentifikasi, tahap ini berfokus pada definisi kebutuhan proyek secara jelas dan terstruktur. Kebutuhan ini meliputi spesifikasi teknis, fungsi yang diinginkan, serta kriteria-kriteria lain yang harus dipenuhi agar solusi dapat berfungsi dengan baik.
+Tahap inti penelitian berfokus pada proses fine-tuning model IndoBERT menggunakan dataset yang telah disiapkan, yang kemudian dievaluasi secara mendalam pada tahap model evaluation melalui metrik akurasi dan F1-score. Setelah model mencapai performa terbaik, dilakukan implementasi service ABSA ke dalam kerangka kerja FastAPI, disusul dengan tahap deployment ke lingkungan produksi. Keandalan sistem kemudian diuji melalui black box testing menggunakan alat bantu Postman untuk memastikan seluruh endpoint API merespons dengan benar. Rangkaian kegiatan ini ditutup dengan tahap bug fix untuk memperbaiki ketidaksesuaian teknis yang ditemukan, serta dokumentasi dan penyusunan laporan akhir sebagai bentuk pertanggungjawaban ilmiah dari seluruh hasil penelitian yang telah dilaksanakan.
 
-\subsection{Generasi Ide dan Solusi}
-Pada tahap ini, berbagai ide dan solusi alternatif dikembangkan dan dievaluasi. Bagian ini menjelaskan proses brainstorming untuk menghasilkan ide yang inovatif, termasuk analisis terhadap kelebihan dan kekurangan dari setiap alternatif solusi yang diusulkan.
+\section{Metode Penelitian}
 
-\subsection{Perencanaan dan Desain Awal}
-Desain awal sistem dikembangkan berdasarkan solusi yang dipilih, dengan mempertimbangkan aspek teknis dan kebutuhan yang telah didefinisikan. Bagian ini menyajikan perencanaan mengenai struktur sistem, alat, dan bahan yang akan digunakan, serta jadwal kerja proyek secara keseluruhan.
+Metode pengembangan sistem yang digunakan dalam penelitian ini adalah \textit{Fountain Model}. Fountain Model merupakan model pengembangan perangkat lunak yang bersifat iteratif dan adaptif, di mana setiap tahapan pengembangan tidak bersifat kaku dan dapat dilakukan secara tumpang tindih. Model ini memungkinkan proses pengembangan berjalan secara fleksibel, khususnya pada sistem yang melibatkan eksperimen dan evaluasi berulang seperti sistem berbasis \textit{machine learning}.
 
-\subsection{Pembuatan Prototipe}
-Prototipe dibuat untuk menguji konsep dan desain awal dari sistem. Bagian ini menguraikan langkah-langkah dalam proses pembuatan prototipe, termasuk alat dan bahan yang diperlukan, serta tantangan yang mungkin dihadapi selama proses.
+Pemilihan Fountain Model pada penelitian ini didasarkan pada karakteristik proses \textit{fine-tuning} model Transformer, khususnya IndoBERT, yang memerlukan tahapan pelatihan, validasi, evaluasi, serta penyesuaian parameter secara berulang. Dengan pendekatan ini, hasil evaluasi pada satu tahap dapat langsung digunakan sebagai masukan untuk penyempurnaan tahap sebelumnya tanpa harus menunggu seluruh proses selesai. Pendekatan ini dinilai sesuai untuk pengembangan sistem analisis sentimen berbasis aspek yang bersifat dinamis dan eksperimen.
 
-\subsection{Pengujian dan Evaluasi}
-Prototipe yang telah dibuat kemudian diuji untuk menilai kinerjanya terhadap kebutuhan dan spesifikasi yang telah ditetapkan. Bagian ini menjelaskan prosedur pengujian yang diterapkan, metode pengumpulan data, serta analisis terhadap hasil yang diperoleh.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{gambar/fountain.jpg}
+    \caption{Diagram arsitektur Fountain Model}
+    \label{fig:fountain-model}
+\end{figure}
 
-\subsection{Perbaikan dan Penyempurnaan}
-Berdasarkan hasil pengujian dan evaluasi, dilakukan perbaikan untuk menyempurnakan sistem. Bagian ini menjelaskan penyesuaian yang dilakukan untuk meningkatkan kinerja sistem, serta proses iterasi yang dilakukan hingga mencapai hasil yang optimal.
+Metode \textit{fountain} merupakan pengembangan dari metode \textit{waterfall} dengan karakteristik tahapan yang pada dasarnya masih sama, namun memiliki fleksibilitas yang lebih tinggi dalam pelaksanaannya. Pada metode ini, beberapa tahapan dapat dilakukan lebih awal, diulang, atau dilewati sesuai kebutuhan, meskipun terdapat tahapan tertentu yang bersifat wajib dan tidak dapat diabaikan, seperti kebutuhan akan desain sebelum proses implementasi dilakukan, karena pengabaian tahapan tersebut dapat menyebabkan tumpang tindih dalam pengembangan sistem. Tahapan dalam metode \textit{fountain} dimulai dari \textit{user requirement specification} untuk mengidentifikasi kebutuhan pengguna, dilanjutkan dengan \textit{software requirement specification} yang berfokus pada penyesuaian perangkat lunak dari sudut pandang pengguna. Selanjutnya dilakukan \textit{system design} sebagai perancangan struktur sistem secara umum, kemudian \textit{program design} yang menghasilkan rancangan lebih detail dan mendekati bentuk akhir perangkat lunak. Tahap \textit{implementation} dilakukan berdasarkan desain yang telah dibuat, kemudian diikuti dengan \textit{program testing} pada tingkat unit (\textit{unit testing}) dan sistem (\textit{system testing}) untuk memastikan setiap komponen dan keseluruhan sistem berjalan dengan baik. Setelah perangkat lunak dinyatakan siap digunakan, dilakukan tahap \textit{program use} berupa pengenalan dan pelatihan kepada pengguna. Tahap terakhir adalah \textit{software maintenance}, yaitu perawatan perangkat lunak yang mencakup pembaruan sistem serta perbaikan kesalahan atau \textit{bugs} yang ditemukan selama penggunaan \cite{dicoding_sdlc}.
 
-\section{Perancangan Sistem Elektronika}
-Bagian ini menguraikan perancangan dari sisi elektronika yang menjadi inti dari sistem. Perancangan ini mencakup blok diagram, pemilihan komponen, dan perancangan rangkaian.
 
-\subsection{Blok Diagram Sistem}
-Blok diagram sistem memberikan gambaran umum mengenai arsitektur sistem secara keseluruhan. Bagian ini menyajikan diagram beserta penjelasan fungsi setiap blok yang terdapat di dalam sistem, termasuk bagaimana setiap blok berinteraksi.
+\section{Requirements Analysis (Analisis Kebutuhan)}
 
-\subsection{Pemilihan dan Spesifikasi Komponen Elektronika}
-Pemilihan komponen elektronika dilakukan berdasarkan kebutuhan dari desain sistem. Bagian ini menjelaskan spesifikasi teknis dari setiap komponen yang digunakan, seperti mikrokontroler, sensor, aktuator, dan komponen pendukung lainnya.
+Tahap analisis kebutuhan bertujuan untuk mendefinisikan kebutuhan sistem secara menyeluruh agar sistem yang dikembangkan sesuai dengan tujuan penelitian. Sistem yang dibangun dalam penelitian ini berupa \textit{Application Programming Interface} (API) yang berfungsi untuk melakukan \textit{Aspect-Based Sentiment Analysis} (ABSA) terhadap ulasan konsumen pada sektor \textit{Food and Beverages} (F\&B). Selain pengembangan API, penelitian ini juga mencakup proses \textit{fine-tuning} model \textit{IndoBERT} untuk memperoleh model klasifikasi sentimen berbasis aspek yang sesuai dengan kebutuhan sistem API yang dikembangkan.
 
-\subsection{Perancangan Rangkaian Elektronika}
-Perancangan rangkaian elektronika bertujuan untuk mencapai fungsionalitas yang diinginkan dari sistem. Bagian ini menguraikan skema rangkaian, penjelasan aliran arus dan tegangan, serta hubungan antar komponen dalam sistem.
 
-\section{Perancangan Mekanik}
-Bagian ini membahas perancangan mekanik dari sistem yang mendukung komponen elektronik secara fisik, termasuk struktur dan pemilihan bahan.
+\subsection{Kebutuhan Fungsional}
 
-\subsection{Spesifikasi Desain Mekanik}
-Desain mekanik disusun berdasarkan kebutuhan fisik sistem untuk memastikan bahwa komponen elektronika terlindungi dan dapat berfungsi dengan baik. Bagian ini menjelaskan spesifikasi teknis desain mekanik yang digunakan.
+Kebutuhan fungsional mendefinisikan fitur-fitur dan fungsi spesifik yang harus dimiliki sistem untuk mencapai tujuan penelitian. Kebutuhan fungsional dalam sistem ini meliputi:
 
-\subsection{Pemilihan Bahan dan Komponen Mekanik}
-Pemilihan bahan didasarkan pada kriteria seperti kekuatan, ketahanan, dan biaya. Bagian ini menguraikan bahan dan komponen mekanik yang digunakan untuk konstruksi sistem, serta alasan pemilihan bahan tersebut.
+\begin{itemize}
+    \item \textbf{Penerimaan Data Ulasan Konsumen}\\ 
+    Sistem harus mampu menerima masukan berupa berkas CSV yang berisi kumpulan ulasan konsumen hasil pengambilan data dari Google Maps Reviews sebagai sumber data utama penelitian.
 
-\subsection{Desain Struktur dan Konstruksi}
-Struktur dan konstruksi sistem dirancang untuk memberikan dukungan fisik yang stabil. Bagian ini menjelaskan proses desain dan konstruksi dari struktur mekanik sistem, serta tantangan yang mungkin dihadapi.
+    \item \textbf{Analisis Sentimen Berbasis Aspek (ABSA)}\\  
+    Sistem harus dapat menganalisis setiap ulasan untuk mengidentifikasi sentimen terhadap tiga aspek utama pada sektor \textit{Food and Beverages} (F\&B), yaitu \textit{food quality}, \textit{service}, dan \textit{price}, sesuai dengan kebutuhan analisis sentimen berbasis aspek.
 
-\section{Perancangan Perangkat Lunak}
-Bagian ini mencakup perancangan perangkat lunak yang mengendalikan sistem, meliputi diagram alir, pengembangan kode, dan pengujian perangkat lunak.
+    \item \textbf{Klasifikasi Multi-Label}\\
+    Sistem harus menerapkan pendekatan \textit{multi-label classification}, di mana satu ulasan dapat mengandung lebih dari satu aspek secara bersamaan, sehingga setiap aspek dianalisis secara independen dalam satu komentar.
 
-\subsection{Flowchart atau Diagram Alir Perangkat Lunak}
-Diagram alir menggambarkan alur kerja dari perangkat lunak yang mengontrol sistem. Bagian ini menyajikan flowchart lengkap yang menunjukkan logika dan struktur kontrol dari perangkat lunak.
+    \item \textbf{Penanganan Aspek yang Tidak Dibahas}\\  
+    Apabila suatu aspek tidak disebutkan dalam sebuah ulasan, sistem harus memberikan label \textit{neutral} pada aspek tersebut. Dalam konteks penelitian ini, label \textit{neutral} diartikan sebagai tidak adanya opini atau sentimen
+    eksplisit terhadap aspek tertentu, bukan sebagai sentimen netral secara emosional.
 
-\subsection{Pemrograman dan Pengembangan Kode}
-Kode perangkat lunak dikembangkan untuk mendukung fungsionalitas sistem. Bagian ini menguraikan struktur dan logika dari program yang dibuat, bahasa pemrograman yang digunakan, serta strategi pengembangan kode.
+    \item \textbf{Penggunaan Model IndoBERT Hasil Fine-Tuning}\\  
+    Sistem harus menggunakan model IndoBERT hasil \textit{fine-tuning} yang dikembangkan secara khusus pada domain ulasan sektor F\&B, sehingga model mampu menangkap karakteristik bahasa dan konteks ulasan konsumen pada
+    industri makanan dan minuman.
 
-\subsection{Pengujian Kode Perangkat Lunak}
-Setelah kode perangkat lunak dikembangkan, dilakukan pengujian untuk memastikan bahwa perangkat lunak berfungsi sesuai yang diharapkan. Bagian ini menjelaskan metode pengujian, jenis uji (misalnya, uji unit dan uji integrasi), serta hasil yang diperoleh.
+    \item \textbf{Penyajian Hasil Analisis dalam Format Terstruktur}\\
+    Sistem harus menghasilkan keluaran dalam format JSON terstruktur yang mencakup hasil analisis sentimen per aspek, ringkasan distribusi sentimen, persentase sentimen, analisis relevansi komentar, tren sentimen berdasarkan waktu, serta metadata tambahan seperti panjang teks dan nilai \textit{confidence score} tertinggi dari hasil prediksi model.
+\end{itemize}
 
-\section{Perancangan Integrasi Sistem}
-Bagian ini menjelaskan proses integrasi antara komponen elektronik, mekanik, dan perangkat lunak agar sistem dapat bekerja sebagai satu kesatuan.
 
-\subsection{Integrasi Komponen Elektronika, Mekanik, dan Perangkat Lunak}
-Proses integrasi bertujuan untuk menyatukan seluruh komponen sistem agar berfungsi sebagai satu kesatuan. Bagian ini menguraikan langkah-langkah dalam proses integrasi dan memastikan semua komponen bekerja secara sinkron.
+\subsection{Kebutuhan Non-Fungsional}
 
-\subsection{Pengujian Awal dan Penyempurnaan Integrasi}
-Pengujian awal dilakukan setelah integrasi untuk menilai performa sistem secara keseluruhan. Bagian ini menjelaskan hasil pengujian integrasi dan modifikasi yang diperlukan untuk meningkatkan kinerja sistem.
+Kebutuhan Non Fungsional adalah pendukung dari kebutuhan fungsional yang harus dipenuhi oleh sistem. Kebutuhan Non Fungsional dalam sistem ini meliputi:
 
-\section{Rencana Pengujian}
-Bagian ini merencanakan pengujian yang komprehensif terhadap sistem untuk memastikan bahwa semua komponen dan fungsi bekerja dengan baik.
+\begin{itemize}
+    \item \textbf{Ketersediaan dan Performa (Availability \& Performance)}\\ Sistem harus mampu memberikan layanan inferensi model secara cepat dan efisien. Mengingat model IndoBERT memiliki parameter yang besar, sistem harus dapat menangani proses pembacaan berkas CSV dan pengembalian hasil dalam waktu yang singkat agar tidak terjadi penumpukan permintaan (bottleneck) saat jumlah data ulasan mencapai ribuan baris.
 
-\subsection{Metode Pengujian Sistem}
-Metode pengujian dipilih berdasarkan tujuan dan kebutuhan proyek. Bagian ini menjelaskan berbagai metodologi pengujian yang dirancang, seperti uji kinerja, uji stabilitas, dan uji kompatibilitas.
+    \item \textbf{Skalabilitas dan Penanganan Asynchronous}\\ Sistem harus dibangun dengan arsitektur yang mendukung operasi asynchronous melalui framework FastAPI. Hal ini diperlukan agar sistem dapat menangani beberapa permintaan inferensi secara bersamaan tanpa mengunci proses utama (non-blocking), sehingga skalabilitas sistem terjaga saat diakses oleh banyak pengguna sekaligus.
 
-\subsection{Prosedur Pengujian}
-Prosedur pengujian disusun untuk menguji sistem secara menyeluruh, mulai dari pengaturan awal hingga pelaksanaan uji. Bagian ini menjelaskan langkah-langkah pengujian secara detail untuk menjamin konsistensi dan keandalan hasil.
+    \item \textbf{Reliabilitas dan Error Handling}\\ Sistem harus memiliki ketahanan yang tinggi terhadap kegagalan operasional. Apabila terdapat berkas CSV yang rusak, kolom yang tidak sesuai, atau input teks yang kosong, sistem tidak boleh berhenti bekerja (crash), melainkan harus memberikan pesan peringatan atau log kesalahan yang informatif dalam format JSON.
 
-\subsection{Kriteria Keberhasilan Pengujian}
-Kriteria keberhasilan ditentukan untuk mengevaluasi kinerja sistem berdasarkan parameter-parameter tertentu. Bagian ini menguraikan kriteria-kriteria keberhasilan yang digunakan, seperti ketepatan, keandalan, dan efisiensi sistem.
+    \item \textbf{Interoperabilitas dan Dokumentasi API}\\ Sistem harus dapat berinteraksi dengan aplikasi klien lainnya dengan mudah. Hal ini dicapai melalui penyediaan dokumentasi otomatis menggunakan Swagger UI (OpenAPI). Dokumentasi ini harus memuat detail mengenai parameter input, skema validasi Pydantic, serta contoh respons output agar memudahkan pengembang lain dalam melakukan integrasi sistem.
 
-Pada bagian ini akan dijelaskan beberapa tahap utama dalam proses pengembangan proyek dan beberapa rekomendasi peningkatan yang dapat dilakukan. Daftar tahapan pengembangan proyek akan disajikan dalam bentuk bernomor untuk menunjukkan urutan logis dari proses, sementara rekomendasi peningkatan akan disajikan dalam bentuk daftar berpoin untuk mempermudah identifikasi setiap item secara mandiri.
+    \item \textbf{Portabilitas Sistem}\\ Sistem harus memiliki fleksibilitas untuk dijalankan di berbagai lingkungan operasional, baik pada mesin lokal maupun layanan cloud. Penggunaan teknologi kontainerisasi (Docker) menjadi kebutuhan utama untuk memastikan seluruh dependensi dan environment model IndoBERT tetap konsisten terlepas dari perbedaan spesifikasi perangkat keras.
+
+    \item \textbf{Keamanan dan Validasi Data}\\ Sistem harus menerapkan validasi data yang ketat pada setiap berkas yang diunggah untuk mencegah serangan injeksi atau data berbahaya. Selain itu, akses menuju endpoint API harus dapat dikonfigurasi dengan kebijakan keamanan tertentu, seperti pembatasan akses berdasarkan domain (CORS) untuk melindungi layanan inferensi dari penyalahgunaan pihak luar.
+\end{itemize}
+
+\section{System Design (Desain Sistem)}
+
+Desain sistem dalam penelitian ini difokuskan pada pembangunan arsitektur layanan analisis sentimen berbasis API yang efisien dan bersifat stateless. Pendekatan stateless berarti sistem dirancang untuk hanya memproses data masukan yang diterima pada saat itu juga dan langsung mengembalikan hasilnya tanpa menyimpan data pengguna ke dalam basis data permanen. Hal ini bertujuan untuk menjaga privasi data serta memastikan kecepatan performa layanan inferensi. Arsitektur sistem secara keseluruhan berperan sebagai jembatan antara model IndoBERT yang telah dilatih dengan pengguna akhir, di mana interaksi utama dilakukan melalui protokol HTTP menggunakan metode POST. Pengguna mengirimkan kumpulan ulasan dalam format berkas CSV, yang kemudian akan diolah secara otomatis oleh server hingga menghasilkan keluaran berupa data terstruktur.
+
+Alur kerja sistem dimulai pada lapisan interface API yang bertugas menerima berkas CSV dari pengguna. Segera setelah berkas diterima, sistem menjalankan prosedur validasi struktur data untuk memastikan bahwa berkas tersebut memiliki kolom ulasan yang sesuai dan tidak kosong. Jika validasi berhasil, sistem akan melakukan iterasi atau pembacaan baris demi baris pada berkas tersebut. Setiap baris ulasan kemudian masuk ke dalam pipa pemrosesan (processing pipeline) untuk melalui tahap pra-pemrosesan teks dan tokenisasi menggunakan tokenizer bawaan IndoBERT. Pada tahap ini, teks manusia yang tidak beraturan diubah menjadi representasi numerik yang dipahami oleh mesin, lengkap dengan penambahan token khusus seperti [CLS] dan [SEP] serta pembuatan attention mask untuk menjaga konsistensi panjang input.
+
+Setelah data siap, token-token tersebut diteruskan ke inti sistem, yaitu model IndoBERT hasil fine-tuning. Di dalam model, terjadi proses komputasi yang mengevaluasi setiap ulasan berdasarkan aspek-aspek yang telah ditentukan, seperti rasa, harga, dan pelayanan. Model akan memberikan skor probabilitas untuk setiap kategori sentimen pada masing-masing aspek tersebut secara simultan. Karena sistem menerima masukan dalam bentuk berkas (Batch Processing), model akan mengumpulkan seluruh hasil prediksi dari setiap baris ulasan yang ada di dalam berkas CSV. Proses ini dilakukan di bawah pengawasan manajer konteks torch.no\_grad() untuk memastikan penggunaan sumber daya server yang optimal dan waktu respons yang singkat.
+
+Tahap akhir dari desain sistem ini adalah kompilasi dan peringkasan hasil prediksi. Setelah seluruh ulasan dalam berkas CSV selesai dianalisis oleh model IndoBERT, sistem tidak langsung mengirimkan hasil mentah, melainkan mengemasnya kembali ke dalam format respons JSON yang terstruktur. Format JSON dipilih karena sifatnya yang ringan dan mudah dibaca oleh berbagai aplikasi klien, baik itu aplikasi web maupun mobile. Respons ini mencakup detail aspek yang ditemukan, label sentimen yang diberikan, serta skor keyakinan model terhadap prediksi tersebut. Dengan desain arsitektur yang terpusat pada layanan API ini, sistem analisis sentimen berbasis aspek ini dapat diintegrasikan dengan mudah ke dalam berbagai platform ekosistem digital sektor F\&B.
+
+\section{Implementation (Implementasi)}
+
+Implementasi sistem dalam penelitian ini dilakukan melalui tiga tahapan utama yang saling berkaitan secara prosedural, yaitu data collection, data preprocessing, fine-tuning model IndoBERT, dan pembangunan layanan inferensi berbasis FastAPI. Setiap tahapan dirancang untuk memastikan bahwa data ulasan konsumen dapat diproses secara efisien dan menghasilkan prediksi sentimen berbasis aspek yang akurat. Proses implementasi ini mengikuti alur kerja yang sistematis mulai dari pengumpulan data hingga deployment model dalam bentuk layanan API.
+
+\subsection{Pengumpulan Data (Data Collection)}
+
+Tahap pengumpulan data merupakan fondasi krusial dalam penelitian ini karena kualitas dataset secara langsung menentukan seberapa baik model IndoBERT dalam mengenali sentimen konsumen. Penelitian ini menggunakan pendekatan web scraping untuk mengumpulkan ulasan dari platform Google Maps Reviews dengan bantuan library Selenium WebDriver. Keputusan untuk menggunakan Google Maps sebagai sumber data primer didasarkan pada hasil observasi awal terhadap karakteristik ulasan di berbagai platform. Jika dibandingkan dengan media sosial seperti Instagram, ulasan di Google Maps memiliki kepadatan informasi yang jauh lebih baik untuk tugas Aspect-Based Sentiment Analysis (ABSA). Di Google Maps, pengguna cenderung memberikan evaluasi spesifik terhadap aspek-aspek tertentu seperti rasa makanan, keramahan pelayanan, hingga kewajaran harga.
+
+Sebaliknya, ulasan yang diperoleh dari Instagram seringkali bersifat sangat umum dan didominasi oleh sentimen netral. Banyak komentar di Instagram hanya berupa interaksi sosial singkat, seperti penyebutan akun teman atau pujian umum yang tidak memberikan informasi substansial mengenai kualitas produk. Hal ini menyebabkan dataset dari Instagram cenderung memiliki ketidakseimbangan kelas (class imbalance) yang ekstrem, di mana label netral terlalu dominan sementara label positif dan negatif yang mendalam sangat jarang ditemukan. Dengan beralih ke Google Maps, penelitian ini mendapatkan variasi data yang lebih seimbang, yang memungkinkan model untuk mempelajari perbedaan nuansa antara pujian dan kritik pada aspek yang berbeda dalam satu kalimat ulasan.
+
+Untuk memastikan keragaman kosakata dan pola bahasa, data dikumpulkan dari lima gerai F\&B dengan karakteristik yang berbeda di wilayah Jawa Timur, yaitu Mie Gacoan, Kopi Studio 24, Bakso Sayur UB, Geprek Kak Rose, dan Sego Tempong Mbok Nah. Pemilihan kelima tempat ini dilakukan secara sengaja untuk mencakup berbagai jenis sajian, mulai dari kopi dan camilan hingga makanan berat tradisional. Proses pengambilan data dilakukan menggunakan Selenium WebDriver karena sifat halaman Google Maps yang dinamis. Tidak seperti situs web statis, konten ulasan di Google Maps hanya akan muncul melalui proses pemuatan otomatis (asynchronous) saat pengguna melakukan pengguliran halaman. Selenium mampu mensimulasikan perilaku manusia dalam mengendalikan peramban, sehingga memungkinkan skrip untuk berinteraksi dengan elemen JavaScript tersebut secara otomatis.
+
+Implementasi teknis scraping dimulai dengan mengatur konfigurasi WebDriver agar berjalan dalam mode headless untuk mempercepat performa dan menghemat penggunaan memori. Skrip kemudian diprogram untuk melakukan pengguliran halaman secara iteratif guna memicu mekanisme lazy-loading pada daftar ulasan. Selain itu, skrip juga dilengkapi dengan kemampuan untuk mendeteksi dan mengklik tombol "Lihat Selengkapnya" pada ulasan yang panjang, sehingga seluruh teks ulasan dapat terekstraksi secara utuh tanpa ada bagian yang terpotong. Selain teks ulasan, data pendukung seperti rating bintang juga diambil untuk membantu memvalidasi konsistensi antara teks yang ditulis dengan penilaian yang diberikan oleh konsumen.
+
+Sebagai langkah pengamanan dan bentuk etika dalam pengambilan data, skrip ini menerapkan jeda waktu acak (random delay) di setiap tindakan pengambilan ulasan. Hal ini dilakukan untuk meniru pola interaksi manusia dan menghindari beban berlebihan pada server penyedia data yang dapat memicu pemblokiran otomatis. Seluruh data yang berhasil dikumpulkan kemudian disimpan secara terstruktur dalam format CSV. Dataset mentah ini nantinya akan melewati proses pembersihan dan pemeriksaan kualitas, termasuk penghapusan ulasan duplikat atau ulasan yang terlalu singkat, sebelum akhirnya masuk ke tahap pra-pemrosesan dan pelabelan aspek untuk melatih model IndoBERT.
+
+\subsection{Preprocessing Data}
+Tahap pra-pemrosesan (preprocessing) merupakan langkah fundamental untuk merapikan data ulasan konsumen sebelum dimasukkan ke dalam model IndoBERT. Mengingat ulasan pada sektor F\&B di Google Maps seringkali menggunakan bahasa sehari-hari (colloquial) yang tidak baku, proses ini sangat penting untuk memastikan model dapat memahami makna setiap kata dengan lebih akurat. Tahapan ini bertujuan mengubah teks ulasan yang mentah dan tidak terstruktur menjadi format yang lebih bersih dan konsisten.
+
+\begin{lstlisting}[language=Python, caption=Fungsi Membersihkan Teks, label=lst:python_direct]
+    def cleaningText(text):
+        text = re.sub(r'@[A-Za-z0-9]+', ' ', text)
+        text = re.sub(r'#[A-Za-z0-9]+', ' ', text)
+        text = re.sub(r"http\S+", '', text)
+        text = re.sub(r'[0-9]+', '', text)
+        text = re.sub(r'[^\w\s]', ' ', text)
+        text = re.sub(r'[^\x00-\x7F]+', ' ', text)
+        text = text.replace('\n', ' ')
+        text = text.translate(str.maketrans('', '', string.punctuation))
+        text = text.strip(' ')
+        return text
+
+    def casefoldingText(text):
+        return (text or '').lower()
+\end{lstlisting}
+
+Langkah pertama dalam proses ini adalah pembersihan teks dari tanda baca, simbol, dan ikon. Ulasan konsumen sering kali mengandung penggunaan tanda baca yang berlebihan atau emoji yang tidak diperlukan untuk analisis sentimen berbasis aspek. Dengan menghapus karakter non-alfabet ini, model dapat lebih fokus pada kata-kata yang membawa muatan informasi. Setelah teks bersih, dilakukan proses case folding, yaitu mengubah seluruh karakter menjadi huruf kecil (lowercase). Hal ini bertujuan agar sistem menganggap kata yang sama, seperti "Enak", "enak", dan "ENAK", sebagai satu entitas yang identik, sehingga mengurangi variasi fitur yang harus dipelajari oleh model.
+
+
+\begin{lstlisting}[language=Python, caption=Fungsi Ubah Slangwords, label=lst:python_direct]
+    with open('data_clean/slangwords.json', 'r', encoding='utf-8') as f:
+        slangwords = json.load(f)
+
+    def fix_slangwords(text):
+        if not isinstance(text, str):
+            return ""
+        
+        words = text.split()
+        fixed_words = []
+
+        for word in words:
+            if word.lower() in slangwords:
+                fixed_words.append(slangwords[word.lower()])
+            else:
+                fixed_words.append(word)
+
+        return ' '.join(fixed_words)
+\end{lstlisting}
+
+Mengingat ulasan sektor F\&B sangat kental dengan bahasa santai dan tidak baku, tahap selanjutnya yang sangat krusial adalah normalisasi kata gaul (slangwords). Dalam tahap ini, kata-kata yang disingkat atau ditulis secara tidak baku (misalnya "yg", "mkn", "recomended") dipetakan kembali ke bentuk bakunya (seperti "yang", "makan", "rekomendasi"). Proses ini sangat membantu IndoBERT dalam mengenali konteks kalimat, karena model ini dilatih menggunakan korpus bahasa Indonesia yang besar. Perlu diperhatikan bahwa dalam penelitian ini, tahap pemotongan kata imbuhan (stemming) sengaja tidak dilakukan. Hal ini dikarenakan model berbasis Transformer seperti IndoBERT justru membutuhkan imbuhan dan bentuk kata yang utuh untuk memahami nuansa sentimen dan hubungan antar kata dalam satu kalimat.
+
+\begin{table}[H]
+\centering
+\caption{Contoh Hasil Pra-pemrosesan Teks Ulasan Konsumen}
+\label{tab:preprocessing_contoh}
+\begin{tabular}{|c|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+\hline
+\textbf{No} & \textbf{Teks Asli} & \textbf{Setelah Cleaning \& Case Folding} & \textbf{Setelah Normalisasi Slangwords} & \textbf{Hasil Tokenisasi (WordPiece)} \\
+\hline
+
+1 &
+Makanannya enak banget! &
+makanannya enak banget &
+makanannya enak sangat &
+{[makanannya, enak, sangat]} \\
+\hline
+
+2 &
+Pelayanan lama, tp makanannya ok.... &
+pelayanan lama tp makanannya ok &
+pelayanan lama tapi makanannya baik &
+{[pelayanan, lama, tapi, makanannya, baik]} \\
+\hline
+
+3 &
+Harga mahal, parkir susah, tapi rasa ayamnya juaraaa bangettt &
+harga mahal parkir susah tapi rasa ayamnya juaraaa bangettt &
+harga mahal parkir susah tapi rasa ayamnya juara sekali &
+{[harga, mahal, parkir, susah, tapi, rasa, ayamnya, juara, sekali]} \\
+\hline
+
+\end{tabular}
+\end{table}
+
+Tabel \ref{tab:preprocessing_contoh} menunjukkan contoh hasil tahapan pra-pemrosesan teks ulasan konsumen dari kondisi awal hingga tahap tokenisasi. Proses diawali dengan pembersihan teks (\textit{cleaning}) dan \textit{case folding} untuk menghilangkan simbol, ikon, serta menyeragamkan huruf menjadi huruf kecil. Selanjutnya dilakukan normalisasi kata tidak baku (\textit{slangwords}) agar kata-kata informal dapat dipetakan ke bentuk bahasa Indonesia yang baku. Tahap tokenisasi menggunakan IndoBERTTokenizer menghasilkan token berbasis \textit{subword} yang siap dikonversi menjadi representasi numerik sebagai masukan bagi model IndoBERT pada proses \textit{fine-tuning}.
+
+
+\begin{lstlisting}[language=Python, caption=Fungsi Tokenizer, label=lst:python_direct]
+from transformers import BertTokenizer
+tokenizer = BertTokenizer.from_pretrained("indobenchmark/indobert-base-p2")
+
+def tokenizingText(text):
+    text = (text or '').strip()
+    if not text:
+        return []
+    return tokenizer.tokenize(text)
+\end{lstlisting}
+Setelah teks melewati proses pembersihan dan normalisasi secara umum, data kemudian diproses menggunakan IndoBERTTokenizer. Tokenizer ini bekerja secara berbeda dari tokenizer konvensional karena menggunakan mekanisme subword tokenization berbasis WordPiece. Jika terdapat kata yang tidak dikenali dalam kamus (vocabulary) model, WordPiece akan memecah kata tersebut menjadi unit-unit kecil yang disebut subwords (ditandai dengan simbol \#\#). Mekanisme ini memastikan tidak ada kata yang terbuang meskipun ulasan menggunakan istilah unik atau jarang ditemukan. Selain itu, tokenizer secara otomatis menambahkan token khusus, yaitu [CLS] di awal kalimat sebagai penanda utama untuk klasifikasi, dan [SEP] di akhir kalimat sebagai pemisah urutan teks.
+
+Pada tahap akhir pra-pemrosesan, teks yang telah dipecah menjadi token-token tersebut dikonversi menjadi angka atau ID yang dapat dipahami oleh mesin (token IDs). Mengingat setiap ulasan memiliki panjang kalimat yang berbeda-beda, dilakukan proses padding agar semua input dalam satu kelompok (batch) memiliki panjang yang seragam. Bersamaan dengan itu, dihasilkan pula attention mask yang berfungsi sebagai penanda bagi model untuk hanya memperhatikan token kata yang asli dan mengabaikan token kosong hasil padding. Hasil dari seluruh rangkaian proses ini adalah tiga komponen utama input IDs, attention mask, dan token type IDs yang siap menjadi input bagi model IndoBERT untuk tahap fine-tuning.
+
+\begin{table}[H]
+\centering
+\caption{Contoh Konversi Token ke Input IDs dan Attention Mask}
+\label{tab:token_to_ids}
+\begin{tabular}{|c|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+\textbf{No} & \textbf{Token (WordPiece)} & \textbf{Input IDs} & \textbf{Attention Mask} \\
+\hline
+
+1 &
+{[CLS], makanannya, enak, sangat, [SEP]} &
+{[2, 17892, 9345, 4217, 3]} &
+{[1, 1, 1, 1, 1]} \\
+\hline
+
+2 &
+{[CLS], pelayanan, lama, tapi, makanannya, baik, [SEP]} &
+{[2, 15643, 5123, 2048, 17892, 6721, 3]} &
+{[1, 1, 1, 1, 1, 1, 1]} \\
+\hline
+
+3 &
+{[CLS], harga, mahal, parkir, susah, tapi, rasa, ayamnya, juara, sekali, [SEP], [PAD], [PAD]} &
+{[2, 5432, 9812, 7643, 8891, 2048, 3456, 12345, 6789, 4321, 3, 0, 0]} &
+{[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0]} \\
+\hline
+
+\end{tabular}
+\end{table}
+
+
+\subsection{Fine-Tuning Model IndoBERT}
+Proses fine-tuning atau penyesuaian model IndoBERT untuk tugas Aspect-Based Sentiment Analysis (ABSA) dilakukan dengan memodifikasi arsitektur dasar model agar sesuai dengan kebutuhan klasifikasi aspek dan sentimen secara bersamaan. Penelitian ini menggunakan model IndoBERT-base-p2 sebagai fondasi utama karena model ini ibarat sebuah "otak" yang sudah sangat mahir dalam memahami konteks bahasa Indonesia. Di dalamnya terdapat 12 lapisan transformer encoder yang bekerja secara mendalam untuk membedah hubungan antar kata. Agar model ini mampu memberikan keputusan klasifikasi, peneliti menambahkan lapisan tambahan yang disebut classification head tepat di atas token khusus bernama [CLS]. Token ini berfungsi sebagai perangkum seluruh informasi dari satu kalimat ulasan ke dalam sebuah vektor angka yang padat, yang kemudian menjadi landasan bagi model untuk menentukan hasil prediksi.
+
+[Rekomendasi Sisipan Gambar 1: Diagram Arsitektur Model IndoBERT yang menunjukkan aliran data dari input ulasan menuju token [CLS] dan masuk ke Classification Head]
+
+Dalam lapisan classification head tersebut, vektor rangkuman dari token [CLS] akan melewati beberapa tahap pemrosesan untuk meningkatkan akurasi. Pertama, diterapkan mekanisme dropout yang berfungsi sebagai pengaman untuk mencegah model hanya "menghafal" data latihan tanpa benar-benar memahaminya. Dropout secara acak akan menonaktifkan sebagian saraf model selama proses latihan agar model menjadi lebih tangguh dalam mengenali data baru. Setelah itu, data dialirkan menuju lapisan linear dan fungsi aktivasi ReLU yang berperan seperti sakelar penyaring informasi, meneruskan sinyal-sinyal penting dan membuang informasi yang tidak relevan. Karena tugas utama penelitian ini adalah mengenali beberapa aspek sekaligus seperti rasa makanan, pelayanan, dan harga maka bagian akhir model ini dirancang dengan 9 titik keputusan. Rancangan ini memungkinkan model untuk mendeteksi sentimen positif, negatif, atau netral untuk setiap aspek secara simultan dalam satu ulasan yang sama.
+
+[Rekomendasi Sisipan Gambar 2: Visualisasi Output Layer untuk Multi-label Classification yang menampilkan 9 nodes (3 aspek x 3 kategori sentimen)]
+
+Setelah arsitektur siap, model memasuki tahap pembelajaran yang disebut forward pass. Pada tahap ini, teks ulasan yang telah diubah menjadi angka akan melewati mekanisme self-attention di setiap lapisan transformer. Mekanisme ini sangat cerdas karena memungkinkan model untuk memberikan "perhatian" lebih pada kata-kata yang saling berhubungan, misalnya mengaitkan kata "mahal" dengan aspek "harga". Setelah prediksi dikeluarkan, tingkat kesalahan model dihitung menggunakan fungsi BCEWithLogitsLoss. Fungsi ini sangat efektif untuk tugas multi-label karena mampu mengevaluasi kesalahan pada setiap aspek secara independen namun tetap dalam satu proses yang stabil. Informasi mengenai kesalahan tersebut kemudian dikirim balik ke seluruh jaringan model untuk diperbaiki melalui peran Optimizer AdamW. Peneliti juga mengatur kecepatan belajar atau learning rate secara dinamis, di mana model akan belajar perlahan di awal untuk menjaga stabilitas, lalu menyesuaikan kecepatannya hingga mencapai titik performa terbaik.
+
+[Rekomendasi Sisipan Gambar 3: Flowchart Proses Training yang mencakup Forward Pass, Loss Calculation, Backpropagation, dan Update Parameter oleh Optimizer]
+
+Proses latihan ini dilakukan dalam beberapa putaran atau epoch hingga model benar-benar matang. Agar model tidak terjebak dalam kondisi overfitting, peneliti menerapkan mekanisme penghentian otomatis yang disebut early stopping. Mekanisme ini akan memantau performa model secara berkala pada data yang belum pernah dilihat sebelumnya; jika performa tidak menunjukkan peningkatan lagi dalam beberapa putaran, maka latihan akan dihentikan untuk menjaga kualitas model. Selain itu, berbagai parameter penting seperti ukuran batch dan koefisien weight decay juga disesuaikan secara teliti guna mendapatkan kombinasi pengaturan yang paling optimal. Hasil akhirnya adalah sebuah model IndoBERT yang telah terkalibrasi secara khusus untuk mengenali nuansa sentimen konsumen pada sektor F\&B dengan tingkat akurasi yang tinggi.
+
+[Rekomendasi Sisipan Gambar 4: Grafik Learning Curve yang menampilkan perbandingan penurunan Loss pada data Training dan data Validation untuk menunjukkan keberhasilan proses konvergensi model]
+
+\subsection{Tahap Pembangunan Layanan Inferensi Berbasis FastAPI}
+Setelah model IndoBERT berhasil dilatih dan memberikan hasil yang memuaskan pada tahap pengujian, langkah selanjutnya adalah memindahkan model tersebut dari lingkungan eksperimen ke dalam sistem nyata melalui pembangunan layanan API berbasis FastAPI. Pemilihan FastAPI didasarkan pada kemampuannya yang sangat cepat dalam menangani banyak permintaan secara bersamaan melalui fitur asynchronous, serta kemampuannya dalam melakukan validasi data secara otomatis. Proses ini dimulai dengan menyimpan bobot model dan pengaturannya ke dalam penyimpanan permanen, kemudian memuatnya kembali ke dalam memori server saat aplikasi dijalankan. Pada tahap ini, model diatur ke dalam mode evaluasi menggunakan fungsi .eval() yang bertujuan untuk menonaktifkan fitur-fitur khusus pelatihan seperti dropout, sehingga model dapat memberikan hasil prediksi yang stabil dan konsisten setiap kali menerima masukan ulasan dari pengguna.
+
+[Rekomendasi Sisipan Gambar 1: Arsitektur sistem layanan API yang menunjukkan aliran data dari perangkat pengguna menuju server FastAPI dan model IndoBERT]
+
+Layanan ini dirancang dengan pintu masuk atau endpoint khusus, seperti alamat /predict, yang menerima data ulasan dalam format JSON. Untuk memastikan data yang dikirimkan oleh pengguna sudah benar dan aman, sistem menggunakan alat bernama Pydantic yang bertindak sebagai penjaga gerbang untuk memvalidasi format teks secara otomatis. Salah satu kemudahan utama dari penggunaan FastAPI adalah penyediaan dokumentasi interaktif atau Swagger UI yang dapat diakses langsung melalui peramban. Fitur ini sangat membantu pengembang untuk menguji layanan API dengan cara memasukkan teks ulasan secara langsung dan melihat hasil analisisnya tanpa perlu menulis kode tambahan, sehingga proses integrasi dengan aplikasi pihak ketiga menjadi jauh lebih mudah.
+
+[Rekomendasi Sisipan Gambar 2: Tampilan antarmuka dokumentasi otomatis Swagger UI yang menunjukkan cara pengujian API secara interaktif]
+
+Ketika sebuah ulasan masuk melalui API, sistem akan menjalankan rangkaian proses inferensi yang dimulai dengan pembersihan teks secara instan, mencakup pengubahan huruf kecil dan normalisasi kata gaul agar sesuai dengan standar yang dipelajari model saat latihan. Teks yang sudah bersih kemudian diubah menjadi deretan angka oleh tokenizer dan dikirim ke model IndoBERT. Di dalam sistem, proses ini dijalankan di bawah perintah torch.no\_grad() untuk menghemat penggunaan memori dan mempercepat eksekusi karena model tidak lagi melakukan perhitungan perubahan saraf, melainkan hanya fokus menghasilkan skor prediksi. Karena tugas model ini adalah analisis multi-aspek, skor tersebut kemudian diolah menggunakan fungsi Sigmoid untuk menghasilkan nilai probabilitas bagi setiap aspek seperti rasa, pelayanan, atau harga. Jika nilai probabilitas suatu aspek melampaui ambang batas yang ditentukan, maka sistem akan menyatakan bahwa aspek tersebut ditemukan dalam ulasan dengan sentimen tertentu.
+
+[Rekomendasi Sisipan Gambar 3: Contoh format pertukaran data JSON yang memperlihatkan teks input ulasan dan hasil output berupa aspek serta skor sentimennya]
+
+Agar layanan ini dapat diandalkan dan mudah dipindahkan ke berbagai server internet tanpa mengalami error, seluruh sistem dikemas menggunakan teknologi Docker. Dengan Docker, semua kebutuhan perangkat lunak, mulai dari versi Python hingga pustaka pendukung, dibungkus ke dalam satu wadah yang konsisten sehingga dapat dijalankan dengan lancar di layanan awan (cloud platform). Selain itu, diterapkan pula sistem keamanan seperti kunci API dan pengaturan akses lintas domain agar layanan ini hanya bisa diakses oleh pihak yang berwenang. Dengan infrastruktur yang kokoh dan efisien ini, model analisis sentimen berbasis aspek yang telah dibuat dapat diintegrasikan dengan berbagai aplikasi seperti dasbor web atau aplikasi ponsel, sehingga hasil analisis ulasan konsumen dapat digunakan secara langsung untuk mendukung pengambilan keputusan di sektor F\&B.
+
+[Rekomendasi Sisipan Gambar 4: Diagram alur deployment yang menunjukkan proses pengemasan kode ke dalam Docker hingga siap dijalankan di server awan]
+
+\section{Testing (Pengujian)}
+
+Tahapan pengujian dalam penelitian ini dirancang untuk memvalidasi kualitas model klasifikasi serta memastikan keandalan sistem layanan inferensi yang telah dibangun. Pengujian pertama difokuskan pada evaluasi model fine-tuning IndoBERT dengan menggunakan testing set, yaitu sekumpulan data ulasan yang sepenuhnya baru dan tidak terlibat dalam proses pelatihan maupun validasi. Prosedur ini sangat krusial untuk mengukur kemampuan generalisasi model, yakni sejauh mana model dapat mengenali pola sentimen pada aspek rasa, pelayanan, dan harga dari ulasan yang belum pernah ditemuinya di lapangan. Selama proses eksperimen, model dilatih selama 5 epoch untuk memantau titik konvergensi optimal, di mana model dengan performa terbaik pada validation set dipilih untuk diuji lebih lanjut. Performa model diukur menggunakan metrik evaluasi standar yang mencakup Accuracy, Precision, Recall, dan F1-Score untuk setiap aspek secara spesifik. Selain metrik numerik, penelitian ini juga mengimplementasikan Confusion Matrix sebagai instrumen untuk memvisualisasikan ketepatan prediksi model dalam membedakan kelas sentimen positif, negatif, dan netral. Penggunaan matriks ini memungkinkan peneliti untuk mengidentifikasi adanya kesalahan klasifikasi antar kelas (misclassification) secara mendalam, sehingga kualitas prediksi model pada setiap label aspek dapat dipertanggungjawabkan secara statistik.
+
+[Rekomendasi Sisipan Gambar 1: Visualisasi Confusion Matrix untuk klasifikasi sentimen pada aspek Makanan, Harga, dan Pelayanan]
+
+Setelah performa model terverifikasi secara statistik, tahapan pengujian dilanjutkan pada sistem backend melalui metode Black Box Testing untuk menjamin fungsionalitas layanan API yang dibangun dengan FastAPI. Pengujian fungsional dilakukan dengan mensimulasikan permintaan pengguna pada endpoint /predict menggunakan berkas CSV sebagai masukan utama. Prosedur ini bertujuan untuk memastikan bahwa seluruh rangkaian logika sistem—mulai dari penerimaan berkas, pemrosesan ulasan oleh model IndoBERT, hingga pengembalian respon JSON—berjalan sesuai dengan spesifikasi rancangan. Selain pengujian normal, dilakukan pula uji validasi data untuk mengevaluasi ketangguhan sistem dalam menangani masukan yang tidak sesuai, seperti berkas CSV yang rusak, struktur kolom yang salah, atau data teks yang kosong. Penanganan kesalahan ini penting agar sistem tetap stabil dan mampu memberikan pesan peringatan yang informatif alih-alih mengalami kegagalan fungsi (crash).
+
+[Rekomendasi Sisipan Gambar 2: Diagram alur pengujian Black Box pada layanan API dari pengiriman request hingga validasi response]
+
+Sebagai pelengkap pengujian sistem, dilakukan analisis performa melalui pengukuran latensi atau waktu respon sistem. Pengujian ini bertujuan untuk mengukur efisiensi waktu yang dibutuhkan oleh server mulai dari saat berkas CSV diunggah hingga hasil analisis sentimen diterima kembali oleh klien. Mengingat arsitektur IndoBERT yang berbasis Transformer memerlukan komputasi yang intensif, pengukuran latensi menjadi indikator penting dalam menentukan kelayakan sistem untuk digunakan pada skenario penggunaan nyata. Dengan mengintegrasikan hasil pengujian model yang akurat dan pengujian API yang stabil, sistem analisis sentimen berbasis aspek ini diharapkan dapat memberikan layanan inferensi yang cepat, handal, dan tepat sasaran dalam mengolah ulasan konsumen di sektor F\&B.
+
+[Rekomendasi Sisipan Gambar 3: Grafik pemantauan Latensi (Response Time) untuk berbagai ukuran baris data pada berkas CSV]
+
+\section{Maintenance and Iteration}
+
+Setelah sistem berhasil diimplementasikan dan melewati tahap pengujian, langkah selanjutnya yang direncanakan adalah tahap pemeliharaan dan iterasi untuk menjaga performa sistem dalam jangka panjang. Mengingat karakteristik ulasan konsumen di sektor F\&B sangat dinamis, pemeliharaan model IndoBERT menjadi krusial untuk menangani fenomena data drift, di mana pola bahasa atau istilah gaul baru mungkin muncul dan belum dikenali oleh model saat ini. Proses pemeliharaan ini dirancang melalui pemantauan kinerja secara berkala terhadap data ulasan baru yang masuk melalui API. Jika ditemukan penurunan akurasi pada periode tertentu, sistem memerlukan iterasi berupa pelatihan ulang (retraining) menggunakan tambahan dataset terbaru yang telah dilabeli secara manual agar model tetap relevan dengan tren bahasa konsumen saat ini.
+
+Selain pemeliharaan pada level model, aspek pemeliharaan teknis pada layanan API FastAPI juga menjadi fokus utama. Pemeliharaan ini mencakup pembaruan rutin pada dependensi perangkat lunak untuk menutup celah keamanan serta optimalisasi infrastruktur Docker jika beban permintaan dari pengguna meningkat secara signifikan. Iterasi pada sistem API direncanakan melalui penambahan fitur baru berdasarkan umpan balik dari pengguna, seperti perluasan kategori aspek di luar rasa, harga, dan pelayanan, atau pengembangan dasbor visualisasi yang lebih interaktif. Dengan adanya rencana pemeliharaan dan iterasi yang sistematis ini, sistem analisis sentimen berbasis aspek ini diharapkan tidak hanya menjadi produk statis, melainkan sebuah solusi cerdas yang terus berkembang dan terjaga kualitasnya dalam membantu pengambilan keputusan di industri F\&B.
